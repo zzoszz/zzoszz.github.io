@@ -14,9 +14,20 @@
 
     <link rel="stylesheet" href="css/style.css">
     <style>
-
+        html {
+            position: relative;
+        }
+        body {
+            width: 100%;
+            height: 1000px;
+        }
         .menuutama {
             font-weight: bold;
+        }
+        footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
@@ -42,42 +53,47 @@
             <a href="#">Link4</a>
         </div>
     </nav>
-    
-    <a href="indexTrial.html">Index Trial</a> | 
-    <a href="indexEmpty.html">Index Kosong</a>
 
-    <section id="menu" class="menu">
-        <div class="container">
-            <div class="menuutama">Library</div>
-            <div class="menucabang">
-                <a href="library/accordion.html">Accordion</a> | 
-                <a href="library/form.html">Form</a> | 
-                <a href="library/scrollIndikator.html">Scroll Indikator</a> | 
-            </div>
-            <div class="menuutama">Read</div>
-            <div class="menucabang">
-                <a href="read/bacaan_akhlak.html">Akhlak</a> | 
-                <a href="read/bacaan_haa.html">HAA</a> | 
-            </div>
+    <div class="container" id="index">
+        <div class="menuutama">Index</div>
+        <div class="emnucabang">
+            <a href="indexTrial.html">Index Trial</a> |
+            <a href="indexEmpty.html">Index Kosong</a>
         </div>
+    </div>
+
+    <div class="container" id="library">
+        <div class="menuutama">Library</div>
+        <div class="menucabang">
+            <a href="library/accordion.html">Accordion</a> |
+            <a href="library/form.html">Form</a> |
+            <a href="library/scrollIndikator.html">Scroll Indikator</a> |
+            <a href="library/icons.html">Icons</a>
+        </div>
+    </div>
+    <div class="container" id="read">
+        <div class="menuutama">Read</div>
+        <div class="menucabang">
+            <a href="read/bacaan_akhlak.html">Akhlak</a> |
+            <a href="read/bacaan_haa.html">HAA</a> |
+        </div>
+    </div>
+    <div class="container" id="codenote">
+        <div class="menuutama">Codenote</div>
+        <div class="menucabang">
+            <a href="read/git.html">Git</a> | 
+            <a href="read/css.html">css</a> | 
+            <a href="read/js.html">Js</a> | 
+        </div>
+    </div>
+    <div class="container" id="cssfrw">
+        <div class="menuutama">Css framework</div>
+        <div class="menucabang">
+            <a href="css/bootstrap-3.3.7-dist/bootstrap3.html">Bootstrap3</a>
+        </div>
+    </div>
 
     <footer>
-        <div class="icon">
-            <i class="fas fa-home"></i> <span>Home</span>
-            <i class="fas fa-cog"></i> <span>Settings</span>
-            <i class="fas fa-volleyball-ball"></i> <span>Sports</span>
-            <i class="fas fa-paper-plane"></i> <span>Send</span>
-            <i class="fas fa-utensils"></i> <span>Food</span>
-            <i class="fas fa-user"></i> <span>User</span>
-        </div>
-        <div class="socials">
-            <i class="fa fa-facebook"></i> <span>Facebook</span>
-            <i class="fa fa-instagram"></i> <span>Instagram</span>
-            <i class="fa fa-twitter"></i> <span>Twitter</span>
-            <i class="fa fa-linkedin"></i> <span>Linked in</span>
-        </div>
-
-
         <div class="container">
             <h1>footer</h1>
         </div>

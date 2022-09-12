@@ -12,7 +12,7 @@
     <!-- $ font awesome -->
     <script src="https://kit.fontawesome.com/c463912954.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
 
     <style>
         button.login,
@@ -52,7 +52,8 @@
             border: none;
         }
 
-        .formbox input, .formbox textarea {
+        .formbox input,
+        .formbox textarea {
             display: block;
             width: 100%;
             box-sizing: border-box;
@@ -90,55 +91,58 @@
     <!-- $ Eksekusi jQuery -->
     <!-- <div class="jQuery">jQuery</div>
     <button class="jQueryTrial">jQueryTrial</button> -->
-    <a href="../index.html">Kembali ke index</a>
-    <br>
-    <button class="login" onclick="bukaLogin()">Login</button>
-    <section class="formarea">
-        <form class="formbox" action="">
-            <div class="container">
-                <button class="formclose" onclick="tutupLogin()">&times;</button>
-                <label for="nama">Nama</label>
-                <input type="text" id="nama" placeholder="Isi nama">
-                <label for="umur">Umur</label>
-                <input type="number" id="umur" placeholder="isi umur">
-                <label for="alamat">Alamat</label>
-                <textarea type="text" id="alamat" placeholder="isi alamat"></textarea>
-                <button class="cancel" onclick="tutupLogin()">Cancel</button>
-            </div>
-        </form>
-    </section>
+    <div class="container">
+        <a href="../index.html">Kembali ke index</a>
+        <br>
+        <button class="login" onclick="bukaLogin()">Login</button>
+        <section class="formarea">
+            <form class="formbox" action="">
+                <div class="container">
+                    <button class="formclose" onclick="tutupLogin()">&times;</button>
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" placeholder="Isi nama">
+                    <label for="umur">Umur</label>
+                    <input type="number" id="umur" placeholder="isi umur">
+                    <label for="alamat">Alamat</label>
+                    <textarea type="text" id="alamat" placeholder="isi alamat"></textarea>
+                    <button class="cancel" onclick="tutupLogin()">Cancel</button>
+                </div>
+            </form>
+        </section>
 
-    <button class="daftar" onclick="bukaDaftar()">Daftar</button>
-    <section class="formarea2">
-        <form action="" class="formbox">
-            <div class="container">
-                <button class="formclose" onclick="tutupDaftar()">&times;</button>
-                <label for="nama">Nama :</label>
-                <input type="text" id="nama">
-                <label for="pass">Password :</label>
-                <input type="password" id="pass">
-                <label for="id">ID :</label>
-                <input type="number" id="id">
-                <label for="tgl">Tanggal :</label>
-                <input type="date" id="date">
-                <label for="pr">Jenis Kelamin :</label>
-                <br>
-                <input class="pr" type="radio" name="pr">P
-                <input class="pr" type="radio" name="pr">L
-                <br><br>
-                <label for="jabatan">Jabatan :</label>
-                <br>
-                <select name="" id="jabatan">
-                    <option value="">Direktur</option>
-                    <option value="">Staf</option>
-                </select>
-                <br><br>
-                <label for="alamat">Alamat :</label>
-                <textarea name="" id="" cols="15" rows="10"></textarea>
-                <button class="cancel" onclick="tutupDaftar()">Cancel</button>
-            </div>
-        </form>
-    </section>
+        <button class="daftar" onclick="bukaDaftar()">Daftar</button>
+        <section class="formarea2">
+            <form action="" class="formbox">
+                <div class="container">
+                    <button class="formclose" onclick="tutupDaftar()">&times;</button>
+                    <label for="nama">Nama :</label>
+                    <input type="text" id="nama">
+                    <label for="pass">Password :</label>
+                    <input type="password" id="pass">
+                    <label for="id">ID :</label>
+                    <input type="number" id="id">
+                    <label for="tgl">Tanggal :</label>
+                    <input type="date" id="date">
+                    <label for="pr">Jenis Kelamin :</label>
+                    <br>
+                    <input class="pr" type="radio" name="pr">P
+                    <input class="pr" type="radio" name="pr">L
+                    <br><br>
+                    <label for="jabatan">Jabatan :</label>
+                    <br>
+                    <select name="" id="jabatan">
+                        <option value="">Direktur</option>
+                        <option value="">Staf</option>
+                    </select>
+                    <br><br>
+                    <label for="alamat">Alamat :</label>
+                    <textarea name="" id="" cols="15" rows="10"></textarea>
+                    <button class="cancel" onclick="tutupDaftar()">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+    </div>
 
     <script>
         let formarea = document.getElementsByClassName('formarea')[0];

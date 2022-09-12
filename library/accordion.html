@@ -12,7 +12,7 @@
     <!-- $ font awesome -->
     <script src="https://kit.fontawesome.com/c463912954.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="../css/styleTrial.css">
+    <link rel="stylesheet" href="../css/style2.css">
 
     <style>
         body {
@@ -35,7 +35,6 @@
             transition: .3s;
         }
 
-
         .isiB {
             height: 0;
             overflow: hidden;
@@ -45,11 +44,10 @@
         .accordion2::after {
             content: ' \002B';
         }
-        
+
         .active::after {
             content: ' \2212';
         }
-        
     </style>
 
 </head>
@@ -58,54 +56,60 @@
     <!-- $ Eksekusi jQuery -->
     <!-- <div class="jQuery">jQuery</div>
     <button class="jQueryTrial">jQueryTrial</button> -->
-    <a href="../index.html">Kembali ke index</a>
 
     <!-- accordion1 -->
-    <div class="accordion">
-        <button>Accordion1 <i class="fas fa-plus"></i></button>
-        <div class="isi">
+    <div class="container">
+        <a href="../index.html">Kembali ke index</a><br><br>
+
+        <div class="accordion">
+            <button>Accordion1 <i class="fas fa-plus"></i></button>
+            <div class="isi">
+                <li>satu</li>
+                <li>dua</li>
+                <li>tiga</li>
+                <li>empat</li>
+            </div>
+        </div>
+        <div class="accordion">
+            <button>Accordion2 <i class="fas fa-plus"></i></button>
+            <div class="isi">
+                <li>Satu</li>
+                <li>dua</li>
+            </div>
+        </div>
+        <div class="accordion">
+            <button>Accordion3 <i class="fas fa-plus"></i></button>
+            <div class="isi">
+                <li>satu</li>
+                <li>dua</li>
+                <li>tiga</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- accordion2 -->
+        <button class="accordion2">Accordion1</button>
+        <div class="isiB">
             <li>satu</li>
             <li>dua</li>
             <li>tiga</li>
             <li>empat</li>
         </div>
-    </div>
-    <div class="accordion">
-        <button>Accordion2 <i class="fas fa-plus"></i></button>
-        <div class="isi">
+        <button class="accordion2">Accordion2</button>
+        <div class="isiB">
             <li>Satu</li>
             <li>dua</li>
         </div>
-    </div>
-    <div class="accordion">
-        <button>Accordion3 <i class="fas fa-plus"></i></button>
-        <div class="isi">
+        <button class="accordion2">Accordion3</button>
+        <div class="isiB">
             <li>satu</li>
             <li>dua</li>
             <li>tiga</li>
         </div>
     </div>
-    <br>
-    <!-- accordion2 -->
-    <button class="accordion2">Accordion1</button>
-    <div class="isiB">
-        <li>satu</li>
-        <li>dua</li>
-        <li>tiga</li>
-        <li>empat</li>
-    </div>
-    <button class="accordion2">Accordion2</button>
-    <div class="isiB">
-        <li>Satu</li>
-        <li>dua</li>
-    </div>
-    <button class="accordion2">Accordion3</button>
-    <div class="isiB">
-        <li>satu</li>
-        <li>dua</li>
-        <li>tiga</li>
-    </div>
-    <br>
+
 
     <script>
         // accordion1
@@ -140,11 +144,11 @@
         // accordion2
         let acc2, j, isiB;
         acc2 = document.getElementsByClassName('accordion2');
-        for(j = 0; j < acc2.length; j++){
-            acc2[j].addEventListener('click', function(){
+        for (j = 0; j < acc2.length; j++) {
+            acc2[j].addEventListener('click', function () {
                 this.classList.toggle('active');
                 isi = this.nextElementSibling;
-                if (isi.style.height){
+                if (isi.style.height) {
                     isi.style.height = null;
                 } else {
                     isi.style.height = isi.scrollHeight + 'px';

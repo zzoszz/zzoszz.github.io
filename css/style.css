@@ -1,12 +1,7 @@
 body {
     margin: 0;
 }
-html {
-    position: relative;
-}
-body {
-    margin-bottom: 150px;
-}
+
 .container {
     margin: 10px 50px;
 }
