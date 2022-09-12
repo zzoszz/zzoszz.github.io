@@ -41,12 +41,19 @@
             transition: .3s;
         }
 
-        .accordion2::after {
+        .accordion2::after, .accordion3::after {
             content: ' \002B';
         }
 
         .active::after {
             content: ' \2212';
+        }
+
+        .accordion3 {
+            display: block;
+        }
+        .isiC {
+            display: none;
         }
     </style>
 
@@ -87,9 +94,8 @@
         </div>
     </div>
 
+    <!-- accordion2 -->
     <div class="container">
-
-        <!-- accordion2 -->
         <button class="accordion2">Accordion1</button>
         <div class="isiB">
             <li>satu</li>
@@ -104,6 +110,27 @@
         </div>
         <button class="accordion2">Accordion3</button>
         <div class="isiB">
+            <li>satu</li>
+            <li>dua</li>
+            <li>tiga</li>
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="accordion3">Accordion1</button>
+        <div class="isiC">
+            <li>satu</li>
+            <li>dua</li>
+            <li>tiga</li>
+            <li>empat</li>
+        </div>
+        <button class="accordion3">Accordion2</button>
+        <div class="isiC">
+            <li>Satu</li>
+            <li>dua</li>
+        </div>
+        <button class="accordion3">Accordion3</button>
+        <div class="isiC">
             <li>satu</li>
             <li>dua</li>
             <li>tiga</li>
@@ -156,6 +183,20 @@
             })
         }
 
+        // accordion3
+        let acc3, k;
+        acc3 = document.getElementsByClassName('accordion3');
+        for (k = 0; k < acc3.length; k++){
+            acc3[k].addEventListener('click', function(){
+                this.classList.toggle('active');
+                isi = this.nextElementSibling;
+                if (isi.style.display === 'block'){
+                    isi.style.display = 'none';
+                } else {
+                    isi.style.display = 'block';
+                }
+            })
+        }
     </script>
 
     <!-- $ source jss framework bootstrap online -->
