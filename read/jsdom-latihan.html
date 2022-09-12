@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsdom latihan</title>
+    <style>
+        .biru-muda { background-color: lightblue;}
+        .kotak {
+            width: 100px;
+            height: 100px;
+        }
+        .merah { background-color: red;}
+        .hijau { background-color: green;}
+        .biru { background-color: blue;}
+    </style>
+</head>
+<body>
+    <h1 id="judul">Judul</h1>
+    <a href="#">Manipulasi1</a><br>
+    <a href="#">Manipulasi2</a><br>
+    <a href="#">Manipulasi3</a><br>
+    <main>
+        <h2 id="subjudul">Subjudul</h2>
+        <section id="a">
+            <h3>sub-subjudul satu</h3>
+            <p class="p1">Paragraf 1</p>
+            <p class="p2">Paragraf 2</p>
+            <p class="p3">Paragraf 3</p>
+        </section>
+        <section id="b">
+            <h3>sub-subjudul dua</h3>
+            <p class="p1">Paragraf 1</p>
+            <p class="p2">Paragraf 2</p>
+            <p class="p3">Paragraf 3</p>
+            <ul>
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+        </section>
+        <section id="c">
+            <h3>sub-subjudul tiga</h3>
+            <p class="p1">Paragraf 1</p>
+            <p class="p2">Paragraf 2</p>
+            <p class="p3">Paragraf 3</p>
+        </section>
+        <section id="event">
+            <h3>Event Handler dan add event listener</h3>
+            <p class="klik1" onclick="gantiBackground()">Klik: event handler menambah atribut: onclick="namafungsi"</p>
+            <p class="klik2">Klik: add event listener</p>
+        </section>
+    </main>
+
+    <button type="button" id="tUbahWarna">Ubah Warna tidak balik</button><br>
+    <button type="button" id="tUbahWarna2">Ubah Warna balik lagi</button>
+    <br><br>
+    <div class="kotak merah"></div>
+    <input type="range" name="sMerah" min="1" max="255">
+    <div class="kotak hijau"></div>
+    <input type="range" name="sHijau" min="1" max="255">
+    <div class="kotak biru"></div>
+    <input type="range" name="sBiru" min="1" max="255">
+
+    <script src="jsdom-latihan.js"></script>
+</body>
+</html>

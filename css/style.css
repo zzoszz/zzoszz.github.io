@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+}
+html {
+    position: relative;
+}
+body {
+    margin-bottom: 150px;
+}
+.container {
+    margin: 10px 50px;
+}
+li {
+    list-style: none;
+}
+header {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+}
+nav {
+    background-color: #abc;
+    height: 41px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a.logo {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 50px;
+}
+nav .menu {
+    float: right;
+    margin-right: 50px;
+}
+
+nav .menu a {
+    padding: 10px;
+    font-size: 18px;
+    display: inline-block;
+    transition: .3s;
+}
+nav .menu a:hover {
+    background-color: #ccc;
+}
+
+.bar-container {
+    display: none;
+    top: 5px;
+    right: 50px;
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: .3s;
+}
+
+.x .bar1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+.x .bar2 {
+    opacity: 0;
+}
+.x .bar3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    padding: 3px;
+    color: white;
+}
+
+
+/* media query */
+@media screen and (max-width: 600px) {
+    nav .menu {
+        background-color: #bbb;
+        margin: 5px 0 0 0;
+        height: 0;
+        transition: .3s;
+        float: none;
+        overflow: auto;
+    }
+    nav .menu a {
+        display: block;
+        float: none;
+    }
+    nav .menu a:hover {
+        background-color: #ddd;
+    }
+    .bar-container {
+        display: inline-block;
+        position: absolute;
+    }
+    .container {
+        margin: 10px;
+    }
+}
+
+

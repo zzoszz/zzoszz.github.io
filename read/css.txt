@@ -1,0 +1,74 @@
+CSS Dasar
+- Selektor/Prioritas (inline/1000, #id/0100, .class/0010, html/0001)
+- Prioritas yang ditulis kedua atau terakhir (menimpa sebelumnya)
+- koma (,) = dan contoh: h1, p (seleksi h1 dan p)
+- spasi ( ) = dalam contoh: h1 p (p dalam h1)
+--- Background-(color image position repeat) [shorthand yes]
+--- font-(style variant weight size/height family, wajib: size family) [shorthand yes]
+--- text-(align indent decoration transform) letter-spacing, word-spacing, color [shorthand no]
+--- pseudo:link :hover :active :visited :nth-child(2/2n/2n+3);
+
+CSS Layouting
+- reset1: * {margin: 0; padding: 0} dst
+- reset2: reset sendiri atau https://meyerweb.com/eric/tools/css/reset/ copas
+- position: static(default) relative absolute fixed
+--- position: -- top: 0; left: 0; right: 0; bottom: 0;
+- boxmodel: margin, padding, border, content
+--- margin: 50px auto [posisi di tengah]
+--- box-sizing: border-box [menetapkan ukuran awal]
+- overflow: [untuk scroll]
+- float: [float dalam box, jika kepenuhan maka meruntuhkan boxnya, atasi dengan clear(2 cara)]
+--- cara1 clear::after { content: ''; display: block; clear: both; }
+--- cara2 [buat kelas clear, lalu buat style] .clear {clear: both}
+
+CSS 3
+- border-radius
+- filter: blur(px) brightness(%) contranst(%) saturate(%) grayscale(%) sepia(%) invert(%) hue-rotate(deg) opacity(%) drop-shadow(value box/text shadow)
+- box/text-shadow: inset x-offset(px) y-offset(px) blur(px) spread(px) color (inset dan spread itu opsional)
+- background-image: linear-gradient(edge[deg/to] first-color, second-color, end-color color-stop[%])
+- background-image: radial-gradient(type-range at y-position[px] x-position[px], first-color, n-color)
+- :hover { transform: scale(0) rotate(deg) skew(deg) translate(px) }
+- font: harus tersimpan di sistem operasi user, jika tidak ada, gunakan font.google, berikut
+-- google fonts: https://fonts.google.com/, tekan +, copy syntax yang atas paste di luar style dan yang bawah di dalam style, jika belum cukup, berikut:
+-- @font-face { font-family: 'fontApaAja'; src: url() format(truetype) [baru fontnya bisa dipakai] mengubah ekstensi font bisa dengan web font generator
+-- box-transisi:hover
+-- animation:
+-- @keyframes animasi-bebas { 0%/from { width: 30px } 100%/to { widht: 50px }
+--- .class:hover nama-animasi { animation: animasi-bebas 1s ease }
+-- .class:hover transisi { widht: 30px; height: 30px }
+-- transisi { transition: all 2s ease-in .2s ( transition: property durasi (s/ms) fungsi (timing function) delay (hanya durasi wajib, selain itu opsional)}
+
+Ketika isi container yang tidak ada height-nya diberi float maka container akan collaps, berikut cara mengatasinya (clear, :after, display:flex)
+Display: flex;
+- flex-Container
+--- flex-wrap, flex-direction, align-items, align-content, justify-content
+- flex-item
+--- order: 1 [position]; flex/flex-grow: 1 [size fold]; align-self: flex-end [itself at the end]
+
+Display: grid [lebih keren lagi]
+
+UNIT VALUE
+CSS value dan unit (nilai dan satuan)
+value: integer (+/-), number(angka/pecahan), percentage(%), dimension (number that has a velue)
+-- dimension: length, angle, time, resolution
+--- angle: deg degree (360deg), rad radian (2pi), grad gradian (400g), turn(1)
+--- time: s second, ms mili second.
+--- resolution: dpi dot per inch, dpcm dot per centimeter, dppx dot per pixel.
+--- length: absolute (px pixel, pt point, pc pica, cm, mm, in) and relative.
+---- relative: berikut:
+% persentase ukuran relatif terhadap ukuran elemen parent
+em relatif terhadap ukuran font yang sedang digunakan
+rem relatif terhadap ukuran font root <html> / :root
+ch relatif terhadap lebar karakter '0' dari font yang sedang digunakan
+vh relatif terhadap tinggi dari viewport
+vw relatif tarhadap lebar dari viewport
+vmin relatif terhadap dimensi terkecil sebuah viewport
+vmax relatif terhadap dimensi terbesar dari sebuah viewport
+
+
+
+
+
+
+
+

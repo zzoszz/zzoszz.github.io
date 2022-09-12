@@ -1,0 +1,495 @@
+<script src="https://kit.fontawesome.com/c463912954.js" crossorigin="anonymous"></script>
+* string:
+let nama = 'ahmad   abdul ';
+document.write(nama)                hasil = ahmad   abdul
+document.write(nama.trim())         hasil = ahmad abdul
+document.write(nama[1])             hasil = h               (index)
+document.write(nama.length)         hasil = 5               (property length)
+document.write(nama.toUpperCase())  hasil = ABDUL           (method tanpa argumen)
+document.write(nama.repeat(2))      hasil = ahmad   abdul ahmad   abdul (diulang dua kali) 
+document.write(nama.slice(2))       hasil = mad   abdul     (dipotong dua index awal)
+document.write(nama.slice(-2))      hasil = ahmad   abdul   (dipotong dua index akhir)
+document.write(nama.slice(2, 4))    hasil = ma
+document.write(nama.replace('a', 'o'))  hasil = ohmod   obdol
+document.write(nama.concat('plus')) hasil = ahmad   abdul plus
+* string to number
+--- parseInt (konversi bulat)		let a = parseInt('1.5') = 1	parseInt('1.5text) = 1	parseInt(text1.5) = NaN
+--- parseFloat(konversi pecahan)	let a = parseFloat('1.5') = 1.5 
+--- Number(konversi bulat dan pecahan)	let a = Number('1.5') = 1.5	Number('1.5text') = NaN
+--- number.toString() (nomor ke string)	(a.toString() + 10 = 1.510
+--- isNaN('1.5') = true
+
+* array
+let hari = []
+hari = ['senin', 'selasa']
+--- Tambah/hapus data dari akhir
+hari.push('rabu')	hasil = hari = ['senin', 'selasa', 'rabu'] atau,
+hari[3] = 'rabu'	hasil = hari = ['senin', 'selasa', 'rabu]
+hari.pop();		hasil = hari = ['senin', 'selasa']
+--- Tambah/hapus data dari awal
+hari.shift();		hasil = hari = ['selasa', 'rabu']
+hari.unshift('senin');	hasil = hari = ['senin', 'selasa', 'rabu']
+--- Tambah/hapus data dari tengah
+hari.splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2, ...);
+hari.splice(1, 0, 'rab', 'kam')	hasil = hari = ['senin', 'rab', 'kam', 'selasa'];
+--- Tampilkan data
+hari = ['senin', 'selasa', 'rabu', 'kamis']
+hari.slice(1,3)		hasil = hari ['selasa', 'rabu']
+hari[1]			hasil = selasa
+hari[1] = 'sel'		hasil = hari = ['senin', 'sel', 'rabu']
+delete hari[0]		hasil = hari = [empty, 'sel', 'rabu'] atau,
+hari[0] = undefined	hasil = hari = [undefined, 'sel', 'rabu']
+hari.length		hasil = 3 (0,1,2)
+let bulan = ['januari', 'februari', ['minggu1', 'minggu2'], 'april']
+bulan[2][1]		hasil = 'minggu2'
+--- menampilkan semua hari dengan loop
+for (let a=0; a<=hari.length; a++) {
+	console.log(hari[a]);
+}
+bulan.join()		hasil = januari,februari,minggu1,minggu2,april
+bulan.join(' ')		hasil = januari februari minggu1minggu2 april
+
+* object
+let hari = {};
+	hari['senin'] = 'belajar';
+	hari['selasa'] = 'bermain';
+--- atau isi langsung
+let hari = {
+	senin: 'belajar',
+	'hari selasa': 'bermain',
+}
+--- mengaksesnya
+console.log(hari.senin)		 = belajar
+console.log(hari['hari selasa']) = bermain
+--- objeck dalam objek
+let bulan = {
+	januari: 'belajar',
+	februari: {
+		minggu1: 'liburan',
+		minggu2: 'istirahat',
+	maret: 'kerja'
+}
+--- aksesnya
+console.log(bulan.februari.minggu1); = liburan
+* popup (alert, prompt(input), confirm(yes or cancel))
+* if dan switch
+--- if, if else, if else if else
+let a = 10
+if ( a < 15 ) {
+	console.log('benar');
+} else if ( a > 15 ) {
+	console.log('salah');
+} else {
+	console.log('lainnya');
+}
+--- switch untuk nilai sama dengan
+switch ( a ) {
+	case 10 : document.write('sama'); break;
+	case 9 :
+	case 8 :
+	case 7 : document.write('beda'); break;
+	default : document.write('lainnya');
+}
+--- operator ternary
+document.write( a = 10 ? 'lulus' : 'tidak lulus');
+jika a sama dengan 10 maka lulus selain itu tidak lulus.
+* typeof /undefined dan null
+document.write(typeof undefined/null/false/10/BitInt/'10') hasil
+undefined, null, boolean, number, bint, string, symbol, lainnya
+* falsy dan truthy
+--- falsy: false, 0, '', "", ``, null, undefined, NaN
+--- truthy: true, nonZero, string, object, function
+* perulangan
+for (init statement; condition; post statement) {
+	loop block
+}
+--- perulangan tak henti:
+for ( ; ; ) { loop }
+--- perulangan biasa:
+let a = 1;
+for ( ; a < 5; a++ ) { document.write(a) } hasil = 0, 1, 2, 3, 4
+--- coba ini:
+let a = ['satu', 'dua', 'tiga'];
+for (b=0; b<a.length; b++) {
+    console.log(`${b+1}. ${a[b]}`)
+}
+let a = ['satu', 'dua', 'tiga'];
+for (b in a) {
+    console.log(`${parseInt(b)+1}. ${a[b]}`)
+}
+--- tanpa foreach
+let angka = [1,2,3,4,5,6,7];
+for(let i = 0; i < angka.length; i++ ) {
+    console.log(angka[i]);                  hasil = 1 2 3 4 5 6 7
+}
+--- dengan forEach
+let angka = [1,2,3,4,5,6,7];
+angka.forEach(function(e) {
+    console.log(e)                          hasil = 1 2 3 4 5 6 7
+})
+--- dengan forEach plus index
+let angka = ['ahmad', 'abdul', 'ajis'];
+angka.forEach(function(e, i) {
+    console.log((i+1), e)                   hasil = 1 ahmad 2 abdul 3 ajis
+})
+--- map mengembalikan nila array (forEach tidak)
+let angka = [1,2,3,4,5,6,7];
+let angka2 = angka.map(function(e) {
+    return e * 2;
+})
+console.log(angka2.join(' - '))        hasil = 2 - 4 - 6 - 8 - 10 - 12 - 14
+--- sort
+let acak = [1,5,3,8,6,2,4,7];
+acak.sort();
+console.log(acak.join(' - '))       hasil = 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8
+let acakpuluhan = [20, 80, 30, 50, 10];
+acakpuluhan.sort(function(a,b) {
+    return a-b;
+});
+console.log(acakpuluhan.join(', '));        hasil = 10 20 30 50 80
+--- while (diulang di awal, jika a melebihi kondisi maka tidak akan dieksekusi)
+let a = 1;
+while ( a < 5 ) {
+	document.write(a); a++;
+}
+--- do while (diulang di akhir, jika a melebihi kondisi maka hanya nilai a yang dieksekusi
+let a = 1;
+do {
+	document.write(a); a++;
+}
+while (a < 5);
+--- break dan continue
+let a = 1;
+while(true) {
+	document.write(a); a++;
+	if(a<5) {
+		break;
+	}
+}
+for ( a = 1; a < 5; a++ ) {
+	if ( a % 2 === 1 ) {
+		continue;
+	}
+	document.write(a);
+}
+- label (bisa digunakan dengan break dan continue)
+--- secara default saat kita melakukan break dan continue, dia akan melakukan terhadap perulangan di mana kode break dan continue itu digunakan
+--- dengan label, kita bisa melakukan break dan continue terhadap perulangan yang kita inginkan, asalkan pada perulangannya kita gunakan label
+loopi:
+for( let i = 0; i < 100; i++ ) {
+    loopj:
+    for (let j = 0; j < 10; j++ ) {
+        console.info(`${i} - ${j}`);
+    }
+}
+--- fitur ini jarang digunakan
+
+* operator in
+let ary = ['ahmad', 'abdul', 30]
+let str = 'ahmad'
+let obj = {
+    nama: 'abdul',
+    umur: 30,
+    alamat: undefined
+}
+document.writeln('nama' && 'umur' in orang);    hasil = true
+document.writeln('alamat' in orang);            hasil = false
+document.writeln(2 in ary)                      hasil = true
+document.writeln(3 in ary)                      hasil = false
+--- for in (disarankan untuk objek walau untuk array bisa)
+--- for in untuk objek
+for (let property in obj) {
+    console.log(property);                      hasil = nama,umur,alamat
+    console.log(property+ ': ' +obj[property]); hasil = nama: abdul; umur: 30; alamat: undefined;
+}
+--- for in untuk array
+for (let index in obj) {
+    console.log(index)                          hasil = 0   1   2
+    console.log(`${index}: ${obj[index]})       hasil = 0: abdul; 1: 30; 2: undefined
+}
+--- for of untuk array saja
+for (let name of ary) {
+    console.log(name)                           hasil = ahmad   abdul   30
+}
+for (let character of str) {
+    console.log(character)                      hasil = a   h   m   a   d
+}
+for (let character in str) {
+    console.log(character)                      hasil = 0   1   2   3   4
+}
+--- with statement
+--- tanpa with statement
+console.log(obj.nama);          hasil = abdul
+console.log(obj.umur);          hasil = 30
+console.log(obj.alamat);        hasil = undefined
+--- dengan with statement
+with (obj) {
+    console.log(nama);
+    console.log(umur);
+    console.log(alamat)
+}
+// with statement tidak direkomendasikan karena membuat kode menjadi ambigu
+
+--- tanpa nullis coleascing operator
+let kosong;
+let nco = kosong; (nullish value adalah null dan undefined)
+if (nco === undefined || data == null) { data = 'nilai default';}
+document.writeln(data);
+--- dengan nullish coalescing operator
+nco = kosong ?? 'nilai default';
+// jika nco undefined atau null maka 'nilai default'
+--- tanpa optional chaining
+let person = {
+    address: {
+        country: 'indonesia'
+    }
+};
+let country;
+if(person.address !== undefined && person.address !== null ) {
+    country = person.address.country;
+}
+document.writeln(country);
+--- dengan optional chaining
+let orang = {
+    negara: 'indonesia'
+}
+let negara = orang?.negara;
+document.writeln(negara);
+
+* math
+Math.abs(-5)        hasil = 5 (absolute = positif)
+Math.pow(2,3)       hasil = 8 (power = pangkat) atau,
+2**3
+Math.sqrt(16)       hasil = 4 (square route = akar),
+Math.floor(5.4)     hasil = 5 (pembulatan ke bawah)
+Math.celil(5.4)     hasil = 6 (pembulatan ke atas)
+Math.round(5.5)     hasil = 6 (bilangan bulat terdekat)
+Math.floor(Math.random()*5)     hasil = acak 1-4
+Math.floor(Math.random()*5+20)  hasil = acak 20-24
+
+* function
+--- jenis function (expression [anonimous function] dan declaration [name function])
+function fDeklarasi (a, b) {
+    return tambah = a + b;          Hasil = 3
+}
+console.log(fDeklarasi(1,2));
+let fEkspresi =
+    function (a, b) {
+        return tambah = a + b;      hasil = 3
+    }
+console.log(fEkspresi(1,2));
+--- function return value lebih dari satu
+function namaFunction(parameter1) {
+    if (parameter1>=70) {
+        return "Baik";
+    } else {
+        return "Buruk";
+    }
+}
+console.log(namaFunction(60));
+console.log(namaFunction(80));
+--- menghentikan eksekusi dengan return
+function namaFunction(array, searchValue) {
+    for (const element of array) {
+        if (element === searchValue) {
+            return true;
+        }
+    }
+    return false;
+}
+const array = [1,2,3,4,5];
+const search = 10
+const found = namaFunction(array, search);
+console.log(found);         hasil = false (karena 10 tidak ada di array);
+--- optional parameter
+function namaFunction(p1,p2,p3) {
+    console.log(p1); console.log(p2); console.log(p3)
+}
+namaFunction('ahmad')       hasil = ahmad   undefined   undefined
+--- default parameter
+function namaFunction(p1,p2='abdul',p3) {
+    console.log(p1); console.log(p2); console.log(p3)
+}
+namaFunction('ahmad')       hasil = ahmad   abdul   undefined
+--- rest parameter
+function namaFunction(parameter1, ...data) {
+    let total = 0;
+    for (const item of data) {
+        total += item;
+    }
+    console.info(`Total ${name} is ${total}`)
+}
+namaFunction('Orance', 2,3,4);
+--- function sebagai value
+function fnol(nama0){
+    console.log(nama0);
+}
+function fsatu(nama1){
+    nama1('ahmad')
+}
+function fdua(nama2) {
+    nama2('abdul');
+}
+fdua(fnol);             hasil = 'abdul'
+fsatu(fnol);            hasil = 'ahmad'
+--- anonimous function / fungsi fEkspresi
+------ menjadi variabel
+let a = function(nama){
+    console.log(nama)
+}
+a('ahmad')
+------ masuk ke parameter
+function b (nama) {
+    nama('ahmad')
+}
+b(function(nama2){
+    document.write(nama2);
+});                     hasil = 'ahmad'
+b(function(a))          hasil = 'ahmad'
+------ kalau parameternya lebih dari satu dan campur
+b(function(nama2){
+    document.write(nama2);
+}, a);
+--- function di dalam function (nested function)
+function outer (){
+    function inner(){
+        console.info('inner function');
+    }
+    inner()             hasil = 'inner function'
+}
+inner()                 hasil = tidak bisa diases karena diminta di luar fungsi outer
+--- scope
+let globalScope = bisa diakses baik di luar maupun dalam fungsi
+function(){
+    let localScope = hanya bisa diakses di dalam fungsi
+    console.log(globalScope)        hasil = bisa diakses baik di luar maupun dalam fungsi
+    console.log(localScope)         hasil = hanya bisa diakses di dalam fungsi
+}
+console.log(globalScope)        hasil = bisa diakses baik di luar maupun dalam fungsi
+console.log(localScope)         hasil = error
+// begitupun scop nested function, fungsi child tidak bisa diakses di fungsi parentnya
+// nama variabel tanpa var/let/const akan dianggap variabel global
+--- recursive function (fungsi yang memanggil dirinya sendiri)
+------ kode faktorial loop
+function factorial(value) {
+    let result = 1;
+    for (let i = 1; i <= value; i++ ) {
+        result *=i;
+    }
+    return result;
+}
+console.log(factorial(4));             hasil = 24
+console.log(1*2*3*4);                  hasil = 24
+------ kode factorial recursive
+function factorialRecursive(value) {
+    if (value === 1) {
+        return 1;
+    } else {
+        return value * factorialRecursive(value -1 )
+    }
+}
+console.log(factorialRecursive(5));     hasil = 120
+console.log(1*2*3*4*5)                  hasil = 120
+--- function generator
+function* createNames() {
+    yield 'ahmad';
+    yield 'abdul';
+}
+const names = createNames();            hasil = yang keluar, generator, karena lazy
+for (const name of names) {
+    console.log(name);                  hasil = ahmad   abdul
+}
+--- coba yang kompleks
+function* buatGanjil(value) {
+    for (let i = 1; i <= value; i++) {
+        if (i % 2 === 1) {
+            yield i;
+        }
+    }
+}
+const numbers = buatGanjil(10);
+for (const number of numbers) {
+    console.log(number)                 hasil = 1 3 5 7 9
+}
+--- Arrow function
+const sayHello = (name) => {
+    const say = name;
+    console.info(say);
+}
+sayHello('ahmad')                       hasil = ahmad
+--- arguments
+function arg() {
+    return arguments;
+}
+var ar = arg(2,10,30,'Ahmad', false);
+console.log(ar)
+// semua nilai diabaikan oleh function arg tapi tersimpan di arguments;
+--- arrow function (tidak bisa berdiri sendiri, mirip anonimous function)
+const sayHello = (name) => {
+    const say = name;
+    console.log(say)
+}
+sayHello('ahmad')
+------ bisa dibuat lebih sederhana
+const sayHello = (name) => console.log(name);
+sayHello('ahmad')
+------ arrow function dengan return value
+const sum = (first, second) => {
+    return first + second;
+}
+console.log(sum(1,2))           hasil = 3
+const sum = (first, second) => first + second;
+console.log(sum(1,2))           hasil = 3
+------ jika parameter di arrow function hanya satu, kita bisa tidak gunakan kurung
+const sayHello = name => console.log(name);
+sayHello('ahmad');              hasil = ahmad;
+------ arrow function sebagai parameter
+function giveMeName(callback) {
+    callback('eko');
+}
+giveMeName((name) ==> console.log(name))        hasil = 'eko';
+
+* object method (function yang ada di object);
+--- bisa dengan name function atau anonimous function
+let objek = {
+    nama: 'ahmad',
+    umur: 30,
+    alamat: function(negara){
+        console.log('negara')
+    }
+}
+objek.alamat('ahmad');
+------ atau degan deklarasi
+function alamat(negara){
+    console.log(negara)
+}
+let objek = {
+    nama: 'ahmad',
+    umur: 30,
+    alamat: alamat
+};
+objek.alamat('indo');       hasil = indo
+
+* this
+console.info(this);         hasil = window
+function panggil(){
+    console.info(this);     hasil = window
+}
+// hasilnya akan sama walaupun di dalam function atau nested function
+--- kalau di dalam objek maka akan mengacu pada objek
+let nama = 'abdul';
+let objek = {
+    nama: 'ahmad',
+    umur: 30,
+    alamat: function(negara){
+        console.log(nama, this.nama)
+    }
+}
+objek.alamat('abdul')       hasil = abdul ahmad
+--- arrow function di objek
+
+
+
+
+
+

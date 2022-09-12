@@ -1,0 +1,58 @@
+Agenda
+- Pengenalan version control
+- Pengenalan Git
+- Repository
+- The three tree
+- Working directory
+- Staging index
+- Commit
+- Reset Commit
+- dll
+
+- Version Control System (vcs)
+-- revisi (misal: skripsi) versi1, versi2, dst
+-- vcs merekam perubahan file dari waktu ke waktu sehingga bisa melihat ke versi sebelumnya. Semua jenis file bisa direkam perubahannya
+-- 3 jenis vcs: local vcs, centralized vcs, distributed vcs
+--- lvcs: komputer rusak file hilang, sulit kolaborasi dengan pengguna lain, 
+--- cvcs: (contoh: subversion) seluruh data revisi disimpan di server, bisa diakses, file tidak bisa diakses kalau offline
+--- dvcs: (contoh: git, mercurial, dll) tidak hanya mengambil file terakhir namun seluruh riwayat revisi dicopy jadi kalau ada masalah server, masih bisa kerja, bahkan server bisa lebih dari satu karena tiap server isinya sama
+- Git
+-- konfigurasi
+$ git --version
+$ code > otomatis terbuka vscode
+$ git config --global user.name 'user-name'
+$ git config --global user.email 'email@gmail.com'
+$ git config --global core.editor "code --wait" > untuk default editor
+$ git config --global diff.tool "default-diftool"
+$ git config --global difftool.default-difftool.cmd "code --wait --diff \$LOCAL \$REMOTE"
+$ git config --list --show-origin
+-- repository
+$ pwd $ ls $ cd <nama-file> $ cd ..
+$ mkdir <file-baru> $ git init
+$ git status
+- the three states: modified, staged, committed (working - staging - repository)
+-- modifikasi file dilakukan di working directory
+-- staged file disiapkan untuk disimpan permanen di staging area semua perubahan file disimpan
+-- perubahan bisa sekalian ke banyak file (snapshoot: kumpulan dari perubahan yang kita lakukan) setiap snapshoot menghasilkan hash (id dari snapshoot)
+-- hash merupakan checksum untuk menghitung perubahan yang terjadi. Menggunakan algoritma SHA-1 untuk menghitung hash. hash dibutuhkan untuk menjaga data integrity. hash
+$ git add . (semua file) / $ git add nama-file
+$ git commit -m 'komentar'
+$ git clean -f (menghapus file baru)
+$ git restore nama-file (membatalkan perubahan/penghapusan file yang terjadi di workig directory)
+-- jika sudah commit tapi ingin dibatalkan maka, file commit harus dikembalikan ke working directory
+$ git restore --staged nama-file
+-- tidak ada cara membatalkan file yang sudah commit, yang bisa dilakukan hanya Rollback Commit atau Revert commit
+$ git log (menilhat seluruh histori commit)
+$ git log --oneline
+$ git log --oneline --graph
+$ git show hash $ git show head (lihat perubahan terakhir)
+$ git diff hash1 hash2 (membandingkan perubahan) $ git diff hashn head (membandingkan perubahan file tertentu dengan perubahan terbaru)
+$ git difftool hash1 hash2 (melihat perubahan di code-editor default)
+-- coba rename file lalu $ git status $ git add 
+$ git reset <mode> hash ada 3 mode (-soft, -mixed(default), -hard)
+$ git reset <mode> hash ada 3 mode (-soft, -mixed(default), -hard)
+$ git commit --amend -m 'gabung commit' (commit yang ketinggalan)
+$ git checkout hash -- namafile (versi sebelumnya di file yang sama)
+$ git checkout hash (snapshoot sebelumnya)
+
+$ git checkout master

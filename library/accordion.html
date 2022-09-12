@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accordion</title>
+    <!-- $ source css framework bootstrap online -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <!-- $ font awesome -->
+    <script src="https://kit.fontawesome.com/c463912954.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="../css/styleTrial.css">
+
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .accordion button {
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion i {
+            float: right;
+        }
+
+        .accordion .isi {
+            height: 0px;
+            overflow: hidden;
+            list-style: none;
+            transition: .3s;
+        }
+
+
+        .isiB {
+            height: 0;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .accordion2::after {
+            content: ' \002B';
+        }
+        
+        .active::after {
+            content: ' \2212';
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <!-- $ Eksekusi jQuery -->
+    <!-- <div class="jQuery">jQuery</div>
+    <button class="jQueryTrial">jQueryTrial</button> -->
+    <a href="../index.html">Kembali ke index</a>
+
+    <!-- accordion1 -->
+    <div class="accordion">
+        <button>Accordion1 <i class="fas fa-plus"></i></button>
+        <div class="isi">
+            <li>satu</li>
+            <li>dua</li>
+            <li>tiga</li>
+            <li>empat</li>
+        </div>
+    </div>
+    <div class="accordion">
+        <button>Accordion2 <i class="fas fa-plus"></i></button>
+        <div class="isi">
+            <li>Satu</li>
+            <li>dua</li>
+        </div>
+    </div>
+    <div class="accordion">
+        <button>Accordion3 <i class="fas fa-plus"></i></button>
+        <div class="isi">
+            <li>satu</li>
+            <li>dua</li>
+            <li>tiga</li>
+        </div>
+    </div>
+    <br>
+    <!-- accordion2 -->
+    <button class="accordion2">Accordion1</button>
+    <div class="isiB">
+        <li>satu</li>
+        <li>dua</li>
+        <li>tiga</li>
+        <li>empat</li>
+    </div>
+    <button class="accordion2">Accordion2</button>
+    <div class="isiB">
+        <li>Satu</li>
+        <li>dua</li>
+    </div>
+    <button class="accordion2">Accordion3</button>
+    <div class="isiB">
+        <li>satu</li>
+        <li>dua</li>
+        <li>tiga</li>
+    </div>
+    <br>
+
+    <script>
+        // accordion1
+        let acc = document.querySelectorAll('.accordion');
+        acc.forEach(function (e, i) {
+            e.addEventListener('click', function () {
+                let isi = e.querySelector('.isi');
+                let plus = e.querySelector('i');
+                e.classList.toggle('buka');
+                if (e.classList.contains('buka')) {
+                    isi.style.height = `${isi.scrollHeight}px`;
+                    plus.classList.replace('fa-plus', 'fa-minus')
+                } else {
+                    isi.style.height = '0px';
+                    plus.classList.replace('fa-minus', 'fa-plus')
+                }
+                autoTutup(i);
+            })
+        })
+        function autoTutup(i) {
+            acc.forEach(function (e2, i2) {
+                let isi2 = e2.querySelector('.isi');
+                let plus2 = e2.querySelector('i');
+                if (i != i2) {
+                    e2.classList.remove('buka');
+                    isi2.style.height = '0px';
+                    plus2.classList.replace('fa-minus', 'fa-plus')
+                }
+            })
+        }
+
+        // accordion2
+        let acc2, j, isiB;
+        acc2 = document.getElementsByClassName('accordion2');
+        for(j = 0; j < acc2.length; j++){
+            acc2[j].addEventListener('click', function(){
+                this.classList.toggle('active');
+                isi = this.nextElementSibling;
+                if (isi.style.height){
+                    isi.style.height = null;
+                } else {
+                    isi.style.height = isi.scrollHeight + 'px';
+                }
+            })
+        }
+
+    </script>
+
+    <!-- $ source jss framework bootstrap online -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- $ Perintah jQuery (buat dua script, pertama: source, kedua: perintahnya) -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- <script src="js/jquery-3.6.1.min.js"></script> -->
+    <!-- <script>
+        $(document).ready(function(){
+            $('.jQueryTrial').click(function(){
+                $('.jQuery').text('jQuery (ini percobaan)');
+            })
+        })
+    </script> -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- <script src="js/bootstrap3.js"></script> -->
+    <!-- <script src="js/script.js"></script> -->
+    <!-- <script src="js/scriptTrial.js"></script> -->
+</body>
+
+</html>
