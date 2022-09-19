@@ -1,7 +1,0 @@
-install xampp di website resminya (ikuti instruksi) lalu buka pathnya (c:\xampp\php) copy.
-buka: environment > environment variables system variables (path) edit> new, paste.
-buka: cmd ketik "php --version" untuk memastikan instalasinya
---- menjalankan php lewat terminal (foldernya bisa disimpan di mana saja). buat file baru (misal nama: file.php) lalu tulis tag phpnya <?php echo'Hello world!' ?>
-- melihat file php lewat terminal: buka cmd,
-c: user\lokasi> cd lokasiFile (misal: folderLuar/folderDalam) enter lalu ketik 'file.php' (buka file di cmd) atau 'php file.php' (buka file di code editor default)
-- melihat file php lewat vs code terminal: buka vs code > klik terminal > new terminal> ketik 'php file.php

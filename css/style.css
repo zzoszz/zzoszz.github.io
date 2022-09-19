@@ -5,9 +5,6 @@ body {
 .container {
     margin: 10px 50px;
 }
-li {
-    list-style: none;
-}
 header {
     background-color: black;
     color: white;
@@ -21,6 +18,9 @@ nav {
     position: sticky;
     top: 0;
     z-index: 10;
+}
+nav li {
+    list-style: none;
 }
 nav a {
     text-decoration: none;

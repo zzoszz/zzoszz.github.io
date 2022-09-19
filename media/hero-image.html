@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Image</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .hero-image {
+            background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('../img/1.jpg');
+            height: 50%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-text {
+            position: absolute;
+            color: white;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>I am zzoszz</h1>
+            <p>I am a web developer</p>
+            <button>About me</button>
+        </div>
+    </div>
+    <h2>Content here</h2>
+    <a href="../index.html">Kembali ke index</a>
+</body>
+</html>
