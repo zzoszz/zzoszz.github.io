@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js If</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <a href="../../index.html">index</a> |
+    <a href="../program.html">program</a> |
+    <a href="js.html">javascript</a> | 
+    <a href="jsIf.html">js if</a>
+    <h1 class="text-center">if</h1>
+    <div class="container">
+        <h3>if</h3>
+        <p>1 - 4.9 = tidak lulus; 5 - 6.9 = remidial; 7 keatas</p>
+        <input type="text">
+        <input id="submit" type="submit" onclick="hasil()">
+        <p id="hasil">hasil</p>
+        <script>
+            let submit = document.getElementById('submit');
+            function hasil(){
+                let input = submit.previousElementSibling.value;
+                let hasil = submit.nextElementSibling;
+                // 1. if
+                // if(input >= 7){
+                //     hasil.innerHTML = 'lulus';
+                // } else if (input >= 5 && input < 7){
+                //     hasil.innerHTML = 'remidial';
+                // } else {
+                //     hasil.innerHTML = 'tidak lulus';
+                // }
+                // 2. switch
+                // switch (input){
+                //     case 'html':
+                //     case 'css':
+                //     case 'js': hasil.innerHTML = 'wajib untuk pemula';
+                //     break;
+                //     case 'php': hasil.innerHTML = 'agak susah';
+                //     break;
+                //     default : hasil.innerHTML = 'jangan malas';
+                // }
+                // 3. ternary
+                // hasil.innerHTML = input < 5 ? 'benar' : 'salah';
+            }
+
+        </script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <a href="../../index.html">index</a> |
+    <a href="../program.html">program</a> |
+    <a href="js.html">Javascript</a>
+    <h1 class="text-center">Javascript</h1>
+    <div class="materi text-center">
+        <a href="jsIf.html">Js If</a> |
+        <a href="object.html">object</a> |
+        <a href="loop.html">loop</a> |
+        <a href="function.html">function</a>
+    </div>
+    <div class="container">
+        <h3>String</h3>
+        <script>
+            document.write('ahmad | ');
+            document.write("ahmad | ".toUpperCase());
+            document.write("ahmad | ".length);
+            document.write(" | ");
+            document.write("ahmad | "[0]);
+            document.write(" | ");
+            document.write("ahmad ".repeat(2));
+            document.write(" | ");
+            document.write("ahmad | ".slice(2));
+            document.write("ahmad | ".slice(-6));
+            document.write("ahmad | ".slice(2, 4));
+            document.write(" | ");
+            document.write("ahmad | ".replace('a', 'e'));
+            document.write("ahmad".concat(" abdul"));
+        </script>
+        <hr>
+
+        <h3>popup</h3>
+        <p>alert, prompt(input), confirm(yes or cancel</p>
+        <hr>
+
+        <h3>Integer</h3>
+        <script>
+            // parseInt: konversi bulat
+            document.write(20);
+            document.write(" | ");
+            document.write(typeof ('20'));
+            document.write(" | ");
+            document.write(typeof (parseInt('20')));
+            document.write(" | ");
+            document.write(parseInt('2.5'));
+            document.write(" | ");
+            document.write(parseInt('2.5 text'));
+            document.write(" | ");
+            document.write(parseInt('text 2.5'));
+            document.write(" | ");
+            // parseFloat: konversi pecahan
+            document.write(parseFloat('2.5'));
+            document.write(" | ");
+            // Number: konversi bulat dan pecahan
+            document.write(Number('2.5'));
+            document.write(" | ");
+            document.write(Number('2.5 text'));
+            document.write(" | ");
+            // toString()
+            let a = 2;
+            document.write(a + 3);
+            document.write(" | ");
+            document.write(a.toString() + 3);
+            document.write(" | ");
+            document.write(isNaN('b'));
+            document.write(" | ");
+            document.write(isNaN(2));
+        </script>
+        <hr>
+
+        <h3>falsy and truthy</h3>
+        <script>
+            // falsy: false, 0, '', "", ``, null, undefined, NaN
+            if (false) { document.write('truthy'); } else { document.write('falsy'); }
+            if (0) { document.write('truthy'); } else { document.write('falsy'); }
+            if ('') { document.write('truthy'); } else { document.write('falsy'); }
+            if (``) { document.write('truthy'); } else { document.write('falsy'); }
+            if (null) { document.write('truthy'); } else { document.write('falsy'); }
+            if (undefined) { document.write('truthy'); } else { document.write('falsy'); }
+            if (NaN) { document.write('truthy'); } else { document.write('falsy'); }
+            document.write("<br>");
+            // truthy: true, nonZero, string, object, function
+            if (true) { document.write('truthy'); } else { document.write('falsy'); }
+            if (1) { document.write('truthy'); } else { document.write('falsy'); }
+            if ('a') { document.write('truthy'); } else { document.write('falsy'); }
+            if (document) { document.write('truthy'); } else { document.write('falsy'); }
+            if (this) { document.write('truthy'); } else { document.write('falsy'); }
+        </script>
+        <hr>
+
+        <h3>in, of, with</h3>
+        <script>
+            let vArray = 'satu';
+            let array = ['satu', 'dua', 'tiga', 'empat', 'lima'];
+            // for of untuk array saja
+            for (let v of vArray) {
+                document.write(v);
+            }
+            document.write(" | ");
+            for (let v in vArray) {
+                document.write(v);
+            }
+            document.write("<br>");
+            for (let angka of array) {
+                document.write(angka);
+            }
+            document.write("<br>");
+            for (let i = 0; i < array.length; i++){
+                document.write(array[i]);
+            }
+            document.write("<br>");
+            for (let angka of array) {
+                document.write(angka[0] + ' - ');
+            }
+            document.write("<br>");
+
+            // for in disarantakn untuk object walau bisa juga untuk array
+            let objek = {
+                nama: 'ahmad',
+                umur: 30,
+                alamat: undefined
+            }
+            document.write('nama' in objek);
+            document.write('alamat' in objek);
+            document.write(" | ");
+            document.write(4 in array);
+            document.write(5 in array);
+            document.write("<br>");
+            // with statement
+            // tampa with
+            document.write(objek.nama);
+            document.write(objek.umur);
+            document.write("<br>");
+            // dengan with (tidak direkomendasikan karena membuat kode menjadi ambigu)
+            with (objek) {
+                document.write(nama);
+                document.write(umur);
+            };
+        </script>
+        <hr>
+
+        <h3>Nullish Coleascing Operator (nco) and Optional Chaining (oc)</h3>
+        <script>
+            let kosong;
+            let nco = kosong;
+            // nullish value adalah null dan undefined
+            // tanpa nullish
+            if (nco === undefined || data == null) {
+                data = 'nilai default';
+            }
+            document.write(data);
+            document.write(" | ");
+            // dengan nullish
+            document.write(nco = kosong ?? 'nilai default')
+            document.write("<br>");
+
+            // optional chaining
+            // tanpa oc
+            let oc = {
+                isi: {
+                    isiDalam: 'ota'
+                }
+            };
+            let ocHasil;
+            if (oc.isi !== undefined && oc.is !== null) {
+                ocHasil = oc.isi.isiDalam;
+            }
+            document.write(ocHasil);
+            document.write("<br>");
+            // dengan oc
+            let orang = {
+                negara: 'indonesia'
+            }
+            let negara = orang?.negara;
+            document.writeln(negara);
+
+        </script>
+        <hr>
+
+        <h3>Array</h3>
+        <p>Lihat console: ctrl + shift + j</p>
+        <script>
+            let hari = [];
+            hari = ['rb', 'kamis'];
+            console.log(hari);
+            console.log(hari[1]);
+            hari[0] = 'rabu';
+            console.log(hari);
+            // push(elementBaru, elementBaru2, dst) menambah dari ujung
+            hari.push('jumat');
+            console.log(hari);
+            hari.push('sabtu', 'minggu');
+            console.log(hari);
+            // pop() menghapus dari ujung
+            hari.pop();
+            console.log(hari);
+            // shift: menghapus dari awal
+            hari.shift();
+            console.log(hari);
+            // unshift(elementBaru, elementBaru2, dst) menambah dari awal
+            hari.unshift('selasa', 'rabu');
+            console.log(hari);
+            // splice(indexAwal, mauDihapus/ditambahBerapa, elementBaru, elementBaru2, dst) menambah/menghapus data dari tengah
+            hari.splice(2, 0, 'rabu awal', 'rabu akhir');
+            console.log(hari);
+            hari.splice(2, 2);
+            console.log(hari);
+            // slice
+            console.log(hari.slice(1, 3));
+            delete hari[0];
+            console.log(hari);
+            hari[1] = undefined;
+            console.log(hari);
+            console.log(hari.length)
+
+            let bulan = ['januari', 'februari', ['awal maret', 'akhir maret'], 'april'];
+            console.log(bulan);
+            console.log(bulan[2]);
+            console.log(bulan[2][0]);
+
+            for (let i = 0; i <= hari.length; i++) {
+                console.log(hari[i])
+            }
+            for (let i = 0; i <= bulan.length; i++) {
+                console.log(bulan[i])
+            }
+
+
+        </script>
+    </div>
+
+</body>
+
+</html>

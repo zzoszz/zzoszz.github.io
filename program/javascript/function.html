@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <a href="../../index.html">index</a> |
+    <a href="../program.html">program</a> |
+    <a href="js.html">javascript</a> |
+    <a href="function.html">function</a>
+    <h1 class="text-center">function</h1>
+    <div class="container">
+        <h3>Build in</h3>
+        <p>Lihat console</p>
+        <script>
+            console.log(Math.abs(-5)); // absolute
+            console.log(Math.pow(2, 3)); // power (pangkat)
+            console.log(2 ** 3);
+            console.log(Math.sqrt(16)); // square route
+            console.log(Math.floor(5.4)); // pembulatan ke bawah
+            console.log(Math.ceil(5.4)); // pembulatan ke atas
+            console.log(Math.round(5.5)); // bilangan bulat terdekat
+            console.log(Math.random()); // bilangan acak
+            console.log(Math.floor(Math.random() * 5)); // acak 1 - 4
+            console.log(Math.floor(Math.random() * 5 + 20)); // acak 20 - 24
+        </script>
+        <hr>
+
+        <h3>User Defined</h3>
+        <script>
+            // function expression (have a name)
+            function fungsi1() {
+                document.write('this is expression function');
+            }
+            fungsi1();
+            document.write("<br>");
+            // function declaration (anonimous)
+            let fungsi2 = function () {
+                document.write('this is description function')
+            }
+            fungsi2();
+        </script>
+
+        <h3>Parameter dan argumen</h3>
+        <script>
+            // param2 = default parameter, jika tidak diisi argumen maka nilainya 'default saja'
+            // param3 = optional parameter, jika tidak diisi argumen maka nilainya undefined
+            function parameter(param, param2 = 'default saja', param3) {
+                document.write(param + ' - ' + param2 + ' - ' + param3)
+            }
+            parameter('argument');
+            document.write("<br>");
+            parameter('arg', 'default param');
+            document.write("<br>");
+
+            // param4 = rest parameter
+            function rParameter(param, ...param4) {
+                let total = 0;
+                for (let i = 0; i < param4.length; i++) {
+                    total += param4[i];
+                }
+                document.write(param, total);
+            }
+            rParameter('totalnya: ', 1, 2, 3)
+
+        </script>
+
+        <h3>Arrow function</h3>
+        <h3>function as value</h3>
+        <script>
+            fsatu(fnol);
+
+            function fnol(nama0) {
+                document.write(nama0);
+            }
+            function fsatu(nama1) {
+                nama1('ahmad');
+            }
+        </script>
+
+        <h3>lainnya</h3>
+        <script>
+            function namaFunction(array, searchValue) {
+                for (const element of array) {
+                    if (element === searchValue) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            const array = [1, 2, 3, 4, 5];
+            const search = 10
+            const found = namaFunction(array, search);
+            document.write(found); 
+        </script>
+
+    </div>
+
+</body>
+
+</html>

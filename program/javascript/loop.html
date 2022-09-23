@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <a href="../../index.html">index</a> |
+    <a href="../program.html">program</a> |
+    <a href="js.html">javascript</a> | 
+    <a href="loop.html">loop</a>
+    <h1 class="text-center">loop</h1>
+    <div class="container">
+        <h3>for</h3>
+        <!-- 
+            for (initStatement; condition; postStatement){
+                loop block;
+            }
+            perulangan tak henti:
+            for ( ; ; ){
+                loop block;
+            }
+         -->
+        <script>
+            for (i = 0; i < 5; i++) {
+                document.write(i);
+            }
+            document.write(" | ");
+            document.write("<b>operator forEach</b> | ");
+            let angka = ['satu ', 'dua ', 'tiga '];
+            for (i = 0; i < angka.length; i++) {
+                document.write(angka[i]);
+            }
+            document.write(" | ");
+            angka.forEach(function (e) {
+                document.write(e);
+            })
+            document.write(" | ");
+            angka.forEach((e) => {
+                document.write(e);
+            })
+            document.write(" | ");
+            angka.forEach((e, i) => {
+                document.write((i + 1) + '. ' + e);
+            })
+            document.write(" | ");
+            document.write("<b>operator in</b> | ");
+            for (i in angka) {
+                document.write(`${parseInt(i) + 1}. ${angka[i]}`);
+            }
+            document.write(" | ");
+            document.write("<b>operator join</b> | ");
+            let nomor = [1, 2, 3, 4, 5];
+            document.write(nomor.join(' - '));
+            document.write(" | ");
+            document.write("<b>operator map</b> | ");
+            let mapJoin = nomor.map((e) => {
+                return e * 2;
+            });
+            document.write(mapJoin.join(' - '));
+            document.write(" | ");
+            document.write("<b>operator sort</b> | ");
+            let sort1 = [1, 5, 2, 4, 3];
+            let sort2 = [1, 20, 3, 40, 5];
+            document.write(sort1.sort().join(' - '));
+            document.write(" | ");
+            document.write(sort2.sort().join(' - '));
+            document.write(" | ");
+            sort2.sort((a, b) => {
+                return a - b;
+            });
+            document.write(sort2)
+            // document.write(sort2.join(' - '))
+            document.write(" | ");
+            document.write('selebihnya pelajari di w3school')
+        </script>
+        <hr>
+
+        <h3>While</h3>
+        <script>
+            // while (diulang di awal, jika a melebihi kondisi maka tidak akan dieksekusi)
+            let dw = 1;
+            while (dw < 5) {
+                document.write(dw); dw++;
+            }
+            document.write("<br>");
+            // do while (diulang di akhir, jika a melebihi kondisi maka hanya nilai a yang dieksekusi
+            dw = 1;
+            // dw = 10;
+            do {
+                document.write(dw); dw++;
+            }
+            while (dw < 5);
+        </script>
+        <hr>
+
+        <h3>Break and Continue dan label</h3>
+        <script>
+            // break
+            let b = 1;
+            while (true) {
+                document.write(b); b++;
+                if (b <= 5) { break; }
+            }
+            document.write("<br>");
+            // continue
+            for (c = 1; c < 10; c++) {
+                if (c % 2 === 1) { continue; }
+                document.write(c);
+            }
+            document.write("<br>");
+            // label
+            // secara default saat kita melakukan break dan continue, dia akan melakukan terhadap perulangan di mana kode break dan continue itu digunakan
+            // dengan label, kita bisa melakukan break dan continue terhadap perulangan yang kita inginkan, asalkan pada perulangannya kita gunakan label
+            // fitur ini jarang bahkan hampir tidak pernah digunakan
+            loopi:
+            for (let i = 1; i <= 5; i++) {
+                loopj:
+                for (let j = 1; j <= 5; j++) {
+                    document.write(`${i} - ${j}`);
+                }
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
