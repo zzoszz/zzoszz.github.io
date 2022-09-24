@@ -5,42 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <!-- $ source css framework bootstrap online -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-
-    <!-- $ font awesome -->
-    <script src="https://kit.fontawesome.com/c463912954.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="../css/style2.css">
-
-    <style>
-        body {
-            background-color: #eee;
-        }
-    </style>
+    <title>git</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <!-- $ Eksekusi jQuery -->
-    <!-- <div class="jQuery">jQuery</div>
-    <button class="jQueryTrial">jQueryTrial</button> -->
-
+    <a href="../index.html">index</a> |
+    <a href="git.html">git</a>
+    <h1 class="text-center">Git</h1>
     <div class="container">
-        <h2>Git</h2>
-        <a href="../index.html">Kembali ke index</a>
-        <p>
-            <b>Version Control System (vcs):</b> revisi (misal: skripsi) versi1, versi2, dst. Vcs merekam perubahan file
-            dari waktu ke waktu sehingga bisa melihat ke versi sebelumnya. Semua jenis file bisa direkam perubahannya.
-            Ada 3 jenis vcs: local vcs, centralized vcs, distributed vcs <br>
-            - lvcs: komputer rusak file hilang, sulit kolaborasi dengan pengguna lain, <br>
-            - cvcs: (contoh: subversion) seluruh data revisi disimpan di server, bisa diakses, file tidak bisa diakses
-            kalau offline <br>
-            - dvcs: (contoh: git, mercurial, dll) tidak hanya mengambil file terakhir namun seluruh riwayat revisi
-            dicopy jadi kalau ada masalah server, masih bisa kerja, bahkan server bisa lebih dari satu karena tiap
-            server isinya sama. <br>
-            - Git (konfigurasi)
+        <p>Version Control System (vcs): revisi (misal: skripsi) versi1, versi2, dst. Vcs merekam perubahan file dari waktu ke waktu sehingga bisa melihat ke versi sebelumnya. Semua jenis file bisa direkam perubahannya.Ada 3 jenis vcs: local vcs, centralized vcs, distributed vcs lvcs: komputer rusak file hilang, sulit kolaborasi dengan pengguna lain, cvcs: (contoh: subversion) seluruh data revisi disimpan di server, bisa diakses, file tidak bisa diakseskalau offline dvcs: (contoh: git, mercurial, dll) tidak hanya mengambil file terakhir namun seluruh riwayat revisidicopy jadi kalau ada masalah server, masih bisa kerja, bahkan server bisa lebih dari satu karena tiapserver isinya sama. Git (konfigurasi)</p>
         <pre>
             $ git --version
             $ code > otomatis terbuka vscode
@@ -51,151 +27,145 @@
             $ git config --global difftool.default-difftool.cmd "code --wait --diff \$LOCAL \$REMOTE"
             $ git config --list --show-origin
         </pre>
-        -- Git (repository) <br>
+        <p>the three states: modified, staged, committed (working - staging - repository). Modifikasi file dilakukan di
+            working directory; Staged file disiapkan untuk disimpan permanen di staging area semua perubahan file
+            disimpan. Perubahan bisa sekalian ke banyak file (snapshoot: kumpulan dari perubahan yang kita lakukan).
+            Setiap snapshoot menghasilkan hash (id dari snapshoot). Hash merupakan checksum untuk menghitung perubahan
+            yang terjadi. Menggunakan algoritma SHA-1. Untuk menghitung hash. hash dibutuhkan untuk menjaga data
+            integrity.</p>
         <pre>
-            $ pwd
-            $ ls
-            $ cd nama-file (masuk file) / $ cd .. (keluar file)
-            $ mkdir file-baru
-            $ git init
-            $ git status
+            $ git add . (semua file) / $ git add nama-file
+            $ git commit -m 'komentar'
+            $ git clean -f (menghapus file baru)
+            $ git restore nama-file (membatalkan perubahan/penghapusan file yang terjadi di workig directory)
+            -- jika sudah commit tapi ingin dibatalkan maka, file commit harus dikembalikan ke working directory
+            $ git restore --staged nama-file
+            -- tidak ada cara membatalkan file yang sudah commit, yang bisa dilakukan hanya Rollback Commit atau
+            Revert commit
+            $ git log (menilhat seluruh histori commit)
+            $ git log --oneline
+            $ git log --oneline --graph
+            $ git show hash $ git show head (lihat perubahan terakhir)
+            $ git diff hash1 hash2 (membandingkan perubahan) $ git diff hashn head (membandingkan perubahan file
+            tertentu dengan perubahan terbaru)
+            $ git difftool hash1 hash2 (melihat perubahan di code-editor default)
+            -- coba rename file lalu $ git status $ git add
+            $ git reset mode; hash ada 3 mode (-soft, -mixed(default), -hard)
+            $ git commit --amend -m 'gabung commit' (commit yang ketinggalan)
+            $ git checkout hash -- namafile (versi sebelumnya di file yang sama)
+            $ git checkout hash (snapshoot sebelumnya)
+            $ git checkout master
         </pre>
 
-        the three states: modified, staged, committed (working - staging - repository). Modifikasi file dilakukan di
-        working directory; Staged file disiapkan untuk disimpan permanen di staging area semua perubahan file disimpan.
-        Perubahan bisa sekalian ke banyak file (snapshoot: kumpulan dari perubahan yang kita lakukan). Setiap snapshoot
-        menghasilkan hash (id dari snapshoot). Hash merupakan checksum untuk menghitung perubahan yang terjadi.
-        Menggunakan algoritma SHA-1. Untuk menghitung hash. hash dibutuhkan untuk menjaga data integrity.
-
-        <pre>
-        $ git add . (semua file) / $ git add nama-file
-        $ git commit -m 'komentar'
-        $ git clean -f (menghapus file baru)
-        $ git restore nama-file (membatalkan perubahan/penghapusan file yang terjadi di workig directory)
-        -- jika sudah commit tapi ingin dibatalkan maka, file commit harus dikembalikan ke working directory
-        $ git restore --staged nama-file
-        -- tidak ada cara membatalkan file yang sudah commit, yang bisa dilakukan hanya Rollback Commit atau
-        Revert commit
-        $ git log (menilhat seluruh histori commit)
-        $ git log --oneline
-        $ git log --oneline --graph
-        $ git show hash $ git show head (lihat perubahan terakhir)
-        $ git diff hash1 hash2 (membandingkan perubahan) $ git diff hashn head (membandingkan perubahan file
-        tertentu dengan perubahan terbaru)
-        $ git difftool hash1 hash2 (melihat perubahan di code-editor default)
-        -- coba rename file lalu $ git status $ git add
-        $ git reset mode; hash ada 3 mode (-soft, -mixed(default), -hard)
-        $ git commit --amend -m 'gabung commit' (commit yang ketinggalan)
-        $ git checkout hash -- namafile (versi sebelumnya di file yang sama)
-        $ git checkout hash (snapshoot sebelumnya)
-        $ git checkout master
-        </pre>
+        <h1 class="text-center">Github</h1>
+        <p>
+            buka: github.com > sign in/ sign up; isi data bebas saja lalu submit; verifikasi email. boleh edit profil dulu atau mulai project. Repository. new repository: isi apa saja; centang readme lalu create. Di repository akan ada file README.md, lalu buatlah file baru. file > new file. git. buka: git bash atau terminal di vs code
         </p>
+        
+        <h1>Perintah penting</h1>
+        <pre>
+            $ pwd (print working directory) mengetahui di mana posisi sekarang
+            $ clear (hapus isi terminal)
+            $ cd (chage directory) cd .. (keluar folder) cd folder (masuk folder) cd folder/folder (masuk folder masuk lagi)
+            $ ls (list) melihat isi folder
+            $ !q! (jika terjadi error) !wq! (menyimpan jika terjadi error)
+            Perintah git yang biasa
+            $ git init (membuat folder jadi repository)
+            saat folder jadi repository, kenali tiga area (working tree; staging area; history)
+            saat menambah file baru atau mengubah file lama maka di working tree,
+        
+            --- git status
+            --- git add nama-file (menambah file baru ke staging area) git add . (menambah semua file)
+            --- git commit -m 'pesan commit' (file masuk ke history)
+            --- git commit -am 'pesan commit' (file di staging area masuk ke history)
+            - menambah/menghapus/edit, taruh di staging area dengan git add ...
+            --- git log (melihat history) git log -3 (3 history terakhir) git log --style.css (history spesifik pada file style.css)
+            --- git checkout <5digitHash> (pindah ke hash yang dituju);
+            * git branching
+            - saat mengubah file jadi repository, file tersebut menjadi branch master/main 
+            --- git branch branch-baru (membuat branch baru)
+            --- git branch (melihat semua branch yang ada)
+            --- git log (history, head(pointer) mengarah ke master)
+            --- git log --all --decorate --oneline --graph (gunakan)
+            --- alias singkat= 'git log --all --decorate --oneline --graph' (jika memanggil singkat maka sama saja memanggil yang panjang)
+            --- git checkout branch-baru (pindahkah head(pointer) ke branch-baru)
+            * git merging
+            - (fast forward tidak ada conflict)
+            - jika ingin merge branch-baru dengan master maka pointer harus di master, maka akan menyatu
+            - setelah merge, branch-baru bisa dihapus:
+            --- git branch -d branch-baru
+            - (three way merge ada conflict)
+            - conflict terjadi jika satu file diedit mirip, mengatasinya hanya dengan cara manual
+        
+        </pre>
+            
+        <h1>Git Remote</h1>
+        <p>kasus pertama, buat file di local lalu simpan ke github</p>
+        <pre>
+            buat folder di mana saja, buka dengan terminal atau git bash atau bisa dengan cara berikut
+            $ mkdir directory-baru
+            $ cd directory-baru
+            $ git init
+            buat file bebas (ada index.html) nya di derectory-baru 
+            buka github; buat repository nama bebas, tanpa isi, akan ada jendela pilihan, lihat ke paling bawah lalu copas
+            $ git remote add origin https://github.com/nama-repo/remote-local.git
+            $ git remote
+            $ git remote -v
+            $ git push -u origin master
+            selanjutnya untuk upload cukup:
+            $ git push
+        </pre>
+        <p>Kasus kedua, buat file di github lalu simpan juga di local</p>
+        <pre>
+            buat repository baru di github berisi readme.md atau isi sendiri
+            buat fole juga di local, lalu buka di git bash atau terminal
+            (di github) code > clone > copy http-nya
+            (di git bash / terminal ) --- git clone paste http-nya
+            $ cd nama-repo
+            $ git remote
+            $ git -v (ada dua origin: fetch dan push)
+            $ git status (your branch is up to date with 'origin/master')
+            coba buat file baru lalu add, commit
+            $ git push
+            jika ingin dengan aku lain, rubah dulu akunnya dengan cara configurasi berikut:
+            $ git config --list (melihat data akun saat ini)
+            $ git config --global (atau --local) user.name 'nama-user'
+            $ git config --list (lihat perubahan dengan sebelumnya)
+            coba buat file baru lalu
+            $ git push
+        </pre>
+
+
+        <p>Kasus ketiga, di github sudah ada, di local sudah ada</p>
+        <pre>
+            $ git add . 
+            $ git commit -m 'pesan commit'
+            $ git push (gagal) maka,
+            $ git fetch (mengecek repo yang ada di github)
+            $ git status (mengecek repo yang ada di lokal)
+            $ graph (ternyata membuat cabang)
+            $ git pull (akan ada merge conflict, conflictnya otomatis terbuka di code editor, tinggal dibuang yang tidak perlu dan markernya)
+            $ git status
+            $ git add .
+            $ git commit -m 'pesan commit'
+            $ git status
+            $ git push
+        </pre>
+
+
+
     </div>
 
-    <pre>
-        github
-- buka: github.com > sign in/ sign up; isi data bebas saja lalu submit; verifikasi email.
-- boleh edit profil dulu atau mulai project. Repository
-- new repository: isi apa saja; centang readme lalu create.
-Di repository akan ada file README.md, lalu buatlah file baru
-- file > new file
-git
-* buka: git bash atau terminal di vs code
-- Perintah penting
---- pwd (print working directory) mengetahui di mana posisi sekarang
---- clear (hapus isi terminal)
---- cd (chage directory) cd .. (keluar folder) cd folder (masuk folder) cd folder/folder (masuk folder masuk lagi)
---- ls (list) melihat isi folder
---- !q! (jika terjadi error) !wq! (menyimpan jika terjadi error)
-- Perintah git yang biasa
---- git init (membuat folder jadi repository)
-- saat folder jadi repository, kenali tiga area (working tree; staging area; history)
-- saat menambah file baru atau mengubah file lama maka di working tree,
---- git status
---- git add nama-file (menambah file baru ke staging area) git add . (menambah semua file)
---- git commit -m 'pesan commit' (file masuk ke history)
---- git commit -am 'pesan commit' (file di staging area masuk ke history)
-- menambah/menghapus/edit, taruh di staging area dengan git add ...
---- git log (melihat history) git log -3 (3 history terakhir) git log --style.css (history spesifik pada file style.css)
---- git checkout <5digitHash> (pindah ke hash yang dituju);
-* git branching
-- saat mengubah file jadi repository, file tersebut menjadi branch master/main 
---- git branch branch-baru (membuat branch baru)
---- git branch (melihat semua branch yang ada)
---- git log (history, head(pointer) mengarah ke master)
---- git log --all --decorate --oneline --graph (gunakan)
---- alias singkat= 'git log --all --decorate --oneline --graph' (jika memanggil singkat maka sama saja memanggil yang panjang)
---- git checkout branch-baru (pindahkah head(pointer) ke branch-baru)
-* git merging
-- (fast forward tidak ada conflict)
-- jika ingin merge branch-baru dengan master maka pointer harus di master, maka akan menyatu
-- setelah merge, branch-baru bisa dihapus:
---- git branch -d branch-baru
-- (three way merge ada conflict)
-- conflict terjadi jika satu file diedit mirip, mengatasinya hanya dengan cara manual
-* git remote
-** kasus pertama, buat file di local lalu simpan ke github
-- buat folder di mana saja, buka dengan terminal atau git bash atau bisa dengan cara berikut
---- mkdir directory-baru
---- cd directory-baru
---- git init
-- buat file bebas (ada index.html) nya di derectory-baru 
-- buka github; buat repository nama bebas, tanpa isi, akan ada jendela pilihan, lihat ke paling bawah lalu copas
---- git remote add origin https://github.com/nama-repo/remote-local.git
---- git remote
---- git remote -v
---- git push -u origin master
-- selanjutnya untuk upload cukup:
---- git push
-** kasus kedua, buat file di github lalu simpan juga di local 
-- buat repository baru di github berisi readme.md atau isi sendiri
-- buat fole juga di local, lalu buka di git bash atau terminal
-- (di github) code > clone > copy http-nya
-- (di git bash / terminal ) --- git clone paste http-nya
---- cd nama-repo
---- git remote
---- git -v (ada dua origin: fetch dan push)
---- git status (your branch is up to date with 'origin/master')
-- coba buat file baru lalu add, commit
---- git push
-- jika ingin dengan aku lain, rubah dulu akunnya dengan cara configurasi berikut:
---- git config --list (melihat data akun saat ini)
---- git config --global (atau --local) user.name 'nama-user'
---- git config --list (lihat perubahan dengan sebelumnya)
-- coba buat file baru lalu
---- git push
-** kasus ketiga, di github sudah ada, di local sudah ada
---- git add . --- git commit
---- git push (gagal) maka,
---- git fetch (mengecek repo yang ada di github)
---- git status (mengecek repo yang ada di lokal)
---- graph (ternyata membuat cabang)
---- git pull (akan ada merge conflict)
---- conflictnya otomatis terbuka di code editor, tinggal dibuang yang tidak perlu dan markernya
---- git status --- git add. --- git commit -m 'pesan commit' --- git status
---- git push
-    </pre>
+</body>
+
+</html>
 
 
-    <!-- $ source jss framework bootstrap online -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!-- $ Perintah jQuery (buat dua script, pertama: source, kedua: perintahnya) -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <!-- <script src="js/jquery-3.6.1.min.js"></script> -->
-    <!-- <script>
-        $(document).ready(function(){
-            $('.jQueryTrial').click(function(){
-                $('.jQuery').text('jQuery (ini percobaan)');
-            })
-        })
-    </script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <!-- <script src="js/bootstrap3.js"></script> -->
-    <!-- <script src="js/script.js"></script> -->
-    <!-- <script src="js/scriptTrial.js"></script> -->
+
+
+
+
+
 </body>
 
 </html>
