@@ -5,8 +5,216 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .atribut {
+            color: purple;
+        }
+        .atribut2 {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 <body>
-    
+    <a href="../../index.html">index</a> | 
+    <a href="../program.html">program</a> | 
+    <a href="js.html">javascript</a> | 
+    <a href="dom.html">DOM</a>
+    <h1 class="text-center">DOM</h1>
+    <div class="container">
+        <p>window: document (head, body dsb.), history, location</p>
+        <p>Tipe node: Eelement, atribut, text, CData Section, Entity reference, Entity, Processing instruction, comment, document, document type, document fragment, notation</p>
+        <p>Node list dan HTML Collection: keduanya merupakan kumpulan node, struktur datanya mirip array, node list dapat berisi node apapun, sedangkan HTML collection harus berisi element HTML, HTML Collection bersifat live sedangkan node list tidak</p>
+        <p>Struktur hierarki DOM: root node (document), parent node, child node</p>
+        
+        <h3>DOM Selection</h3>
+        <div class="model">
+            <div id="judul">Judul</div>
+            <div class="isi">
+                <p class="isiP">Kelas paragraf</p>
+                <ul>
+                    <li>satu</li>
+                    <li>dua</li>
+                    <li>tiga</li>
+                </ul>
+                <p class="p">satu</p>
+                <p class="p">dua</p>
+                <p class="p">tiga</p>
+            </div>
+            <div class="isi2">
+                <p class="p">satu</p>
+                <p class="p">dua</p>
+                <p class="p">tiga</p>
+            </div>
+        </div>
+        <div id="model2">
+            <p class="p">satu</p>
+            <p class="p">dua</p>
+            <p class="p">tiga</p>
+        </div>
+        <script>
+            // document.getElementById('id') hasilnya element
+            // document.getElementsByTagName('tag') hasilnya HTML Collection 
+            // document.getElementsByClassName('class') hasilnya HTML Collection 
+            // document.querySelector('qs') hasilnya element 
+            // document.querySelectorAll('qsa') hasilnya nodeList 
+            let judul = document.getElementById('judul');
+            console.log(judul)
+            judul.innerHTML = 'innerHTML';
+            judul.style.color = 'red';
+
+            let list = document.getElementsByTagName('li');
+            console.log(list)
+            list[0].innerHTML = 'list pertama';
+
+            let p = document.getElementsByClassName('p');
+            console.log(p)
+            for( i = 0; i < p.length; i++ ){
+                p[i].style.color = 'red';
+            }
+
+            let p2 = document.querySelector('.isi2 .p');
+            console.log(p2)
+            p2.style.color = 'green';
+
+            let p3 = document.querySelector('.isi2 .p:nth-child(2)');
+            p3.style.color = 'blue';
+
+            let pAll = document.querySelectorAll('.model p');
+            console.log(pAll);
+            pAll[0].style.backgroundColor = '#ccc';
+
+            let model2 = document.getElementById('model2');
+            let pModel2 = model2.querySelector('p');
+            pModel2.style.color = 'blue';
+        </script>
+        <h3>DOM Manipulation</h3>
+        <p>Manipulasi Element dan Manipulasi Node</p>
+        <div id="manipulasi">
+            <p>satu</p>
+            <p>dua</p>
+            <p>tiga</p>
+        </div>
+        <script>
+            let pManip = document.querySelector('#manipulasi p');
+            pManip.innerHTML = '<b>innerHTML</b>';
+            // element.innerHTML
+            // element.style
+            // element.getAttribute
+            // element.setAttribute
+            // element.removeAttribute
+
+            // element.classList
+            // element.classList.add()
+            // element.classList.remove()
+            // element.classList.toggle()
+            // element.classList.item()
+            // element.classList.contains()
+            // element.classList.replace()
+
+            pManip.setAttribute('class', 'atribut');
+            pManip.removeAttribute('class');
+            pManip.setAttribute('class', 'atribut');
+            console.log(pManip.classList);
+            pManip.classList.add('atribut2');
+            console.log(pManip.classList);
+            pManip.classList.remove('atribut2');
+            console.log(pManip.classList);
+            pManip.classList.toggle('tombol');
+            // berfungsi saat dimasukkan ke dalam event tombol
+            console.log(pManip.classList.item(1));
+            console.log(pManip.classList.item(2));
+            console.log(pManip.classList.contains('atribut'));
+            pManip.classList.replace('atribut', 'atr');
+            console.log(pManip.classList);
+            
+            // document.createElement();
+            // document.createTextNode();
+            // node.appendChild();
+            // node.insertBefore();
+            // parentNode.removeChild();
+            // parentNode.replaceChild();
+            let manipulasi = document.getElementById('manipulasi');
+            let pManip2 = document.createElement('p');
+            let pText = document.createTextNode('p baru');
+            // menambah di akhir
+            pManip2.appendChild(pText);
+            // manipulasi.appendChild(pManip2);
+
+            // menambah di antara
+            let ab = manipulasi.querySelector('p:nth-child(2)');
+            manipulasi.insertBefore(pManip2, ab);
+
+            let pRemove = manipulasi.querySelector('p:last-child');
+            manipulasi.removeChild(pRemove);
+
+            let pReplace = manipulasi.querySelector('p:first-child');
+            let pManip3 = document.createElement('p');
+            let p3Text = document.createTextNode('replace element');
+            pManip3.appendChild(p3Text);
+            manipulasi.replaceChild(pManip3, pReplace);
+
+        </script>
+        <h3>Event</h3>
+        <div id="idEvent">
+            <!-- event handler: inline HTML attribute -->
+            <button id="btn1" onclick="fungsi()">Button1</button>
+            <button id="btn2">Button2</button>
+            <button id="btn3">Button3</button>
+            <button id="btn4">Tambah Hasil</button>
+            <p class="p1">Hasil1</p>
+        </div>
+        <p>Perbedaannya adalah: event handler jika dibuat dua kali maka hanya yang kedua yang aktif sedangkan addEventListener jika dibuat dua kali maka keduanya akan aktif</p>
+        <p>Berikut kategory event:</p>
+        <ol>
+            <li>Mouse Event</li>
+            <ul>
+                <li>click</li>
+                <li>dblclick</li>
+                <li>mouseover</li>
+                <li>mouseenter</li>
+                <li>mouseup</li>
+                <li>wheel</li>
+            </ul>
+            <li>Keyboard Event</li>
+            <ul>
+                <li>keydown</li>
+                <li>keypress</li>
+                <li>keyup</li>
+            </ul>
+            <li>Resources Event</li>
+            <li>Focus Event</li>
+            <li>View Event</li>
+            <li>Form Event</li>
+            <li>CSS animation and transition event</li>
+            <li>drag droup event</li>
+        </ol>
+        <script>
+            // 
+            let idEvent = document.getElementById('idEvent');
+            let pEvent1 = idEvent.querySelector('.p1');
+            let pEvent2 = idEvent.querySelector('.p2');
+            function fungsi(){
+                pEvent1.style.color = 'red';
+            }
+            // event Handler: element method
+            let button2 = idEvent.querySelector('#btn2');
+            button2.onclick = fungsi;
+            // add event listener
+            let button3 = idEvent.querySelector('#btn3');
+            button3.addEventListener('click', function(){
+                fungsi();
+            })
+            // tambah hasil
+            let button4 = idEvent.querySelector('#btn4');
+            button4.addEventListener('click', function(){
+                let buatTag = document.createElement('p');
+                let isiTag = document.createTextNode('Hasil baru');
+                buatTag.appendChild(isiTag);
+                idEvent.appendChild(buatTag);
+            })
+        </script>
+        
+    </div>
 </body>
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Lanjutan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .kartu {
+            border: 1px solid;
+            display: inline-block
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html">index</a> | 
+    <a href="../program.html">program</a> | 
+    <a href="js.html">javascript</a> | 
+    <a href="domLanjutan.html">dom lanjutan</a>
+    <h1 class="text-center">DOM Lanjutan</h1>
+    <div class="container">
+        <h3>DOM Traversal</h3>
+        <p>Berikut dom traversal method:</p>
+        <ol>
+            <li>parentNode</li>
+            <li>parentElement</li>
+            <li>nextSibling</li>
+            <li>nextElementSibling</li>
+            <li>previousSibling</li>
+            <li>previousElementSibling</li>
+        </ol>
+        <h4>Cara1</h4>
+        <div class="cara1">
+            <div class="kartu">
+                <p>Nama1</p>
+                <p>Umur1</p>
+                <button>x</button>
+            </div>    
+        </div>
+        <h4>Cara2</h4>
+        <div class="cara2">
+            <div class="kartu">
+                <p>Nama1</p>
+                <p>Umur1</p>
+                <button>x</button>
+            </div>
+            <div class="kartu">
+                <p>Nama2</p>
+                <p>Umur2</p>
+                <button>x</button>
+            </div>
+            <div class="kartu">
+                <p>Nama3</p>
+                <p>Umur3</p>
+                <button>x</button>
+            </div>
+        </div>
+        <h4>Cara3</h4>
+        <div class="cara3">
+            <div class="kartu">
+                <p>Nama1</p>
+                <p>Umur1</p>
+                <button>x</button>
+            </div>
+            <div class="kartu">
+                <p>Nama2</p>
+                <p>Umur2</p>
+                <button>x</button>
+            </div>
+            <div class="kartu">
+                <p>Nama3</p>
+                <p>Umur3</p>
+                <button>x</button>
+            </div>
+        </div>
+        <h4>Cara4</h4>
+        <div class="cara4">
+            <div class="kartu">
+                <p>Nama1</p>
+                <p>Umur1</p>
+                <button>x</button>
+                <a href="">tutup</a>
+            </div>
+            <div class="kartu">
+                <p>Nama2</p>
+                <p>Umur2</p>
+                <button>x</button>
+                <a href="">tutup</a>
+            </div>
+            <div class="kartu">
+                <p>Nama3</p>
+                <p>Umur3</p>
+                <button>x</button>
+                <a href="">tutup</a>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // cara1
+        let btnCara1 = document.querySelector('.cara1 button');
+        let kartuCara1 = document.querySelector('.cara1 .kartu');
+        btnCara1.addEventListener('click', function(){
+            kartuCara1.style.display = 'none';
+        })
+
+        // cara2
+        let btnCara2 = document.querySelectorAll('.cara2 button');
+        let kartuCara2 = document.querySelectorAll('.cara2 .kartu');
+        for( let i = 0; i < btnCara2.length; i++ ){
+            btnCara2[i].addEventListener('click', function(){
+                kartuCara2[i].style.display = 'none';
+            })
+        }
+
+        // cara3
+        let btnCara3 = document.querySelectorAll('.cara3 button');
+        for( let i = 0; i < btnCara3.length; i++ ){
+            btnCara3[i].addEventListener('click', function(e){
+                // console.log(e.target)
+                e.target.parentElement.style.display = 'none';
+            })
+        }
+
+        // cara4
+        let btnCara4 = document.querySelectorAll('.cara4 button');
+        btnCara4.forEach(function(el){
+            el.addEventListener('click', function(e){
+                e.target.parentElement.style.display = 'none';
+            })
+        })
+
+
+    </script>
+</body>
+</html>
