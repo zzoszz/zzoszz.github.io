@@ -1,88 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>object</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
+
 <body>
-    <a href="../../index.html">index</a> | 
-    <a href="../program.html">program</a> | 
-    <a href="js.html">javascript</a> | 
+    <a href="../../index.html">index</a> |
+    <a href="../program.html">program</a> |
+    <a href="js.html">javascript</a> |
     <a href="object.html">object</a>
     <h1 class="text-center">Object</h1>
     <div class="container">
-        <h3>This dan window</h3>
-        <p>lihat console</p>
+        <h3>Pengantar</h3>
+        <p>Objek bisa menyimpan variabel, array, objek lain dan fungsi. Yang menyimpan nilai variabel atau array disebut <b>property</b> sedangkan yang menyimpan fungsi disebut <b>method</b> berikut contohnya</p>
+        <p><b>this</b> dalam function atau nested function hasilnya akan sama (lingkupnya window), this dalam object hasilnya akan (lingkupnya object)</p>
+        <pre>
+            pertama lakukan:
+            console.log(this);
+            console.log(window);
+            let objek = {
+                console.log(this);
+                var: 'variabel',
+                arr: ['arr1', 'arr2', 'dst'],
+                objChild: {
+                    child1: 'satu',
+                    child2: 'dua',
+                }
+                met: function(){
+                    return this.variabel;
+                }
+            }
+            console.log(objek);
+            Berikut cara lain membuat objek:
+            let objek = {}
+                objek['var'] = 'variabel'; atau
+                objek.var = 'variabel'
+                objek['arr'] = ['arri', 'arr2', 'dst']; atau
+                objek.arr = ['arri', 'arr2', 'dst'];
+        </pre>
+        <p>Berikut cara memanggilnya:</p>
         <script>
             console.log(this);
             console.log(window);
-            // this dalam function atau nested function hasilnya akan sama (mengacu pada window)
-            // this dalam object hasilnya akan (mengacu pada object)
-            let ini = {
-                namaDepan: 'ahmad',
-                namaBelakang: 'abdul',
-                namaLengkap: function(){
-                    return (this.namaDepan + ' ' + this.namaBelakang)
+            let objek = {
+                variabel: 'variabel',
+                array: ['arr1', 'arr2', 'dst'],
+                objChild: {
+                    child1: 'satu',
+                    child2: 'dua'
+                },
+                method: function(){
+                    console.log(this);
+                    return this.variabel;
                 }
             }
-            document.write(ini.namaLengkap);
+            document.write(objek);
             document.write("<br>");
-            document.write(ini.namaLengkap())
+            document.write(objek.variabel);
+            document.write("<br>");
+            document.write(objek.array);
+            document.write("<br>");
+            document.write(objek.array[0])
+            document.write("<br>");
+            document.write(objek.objChild);
+            document.write("<br>");
+            document.write(objek.objChild.child1);
+            document.write("<br>");
+            document.write(objek.method);
+            document.write("<br>");
+            document.write(objek.method());
         </script>
-        <hr>
-
-        <h3>Membuat objek</h3>
-        <p>lihat console</p>
+        <p>this dalam function atau nested function hasilnya akan sama (lingkupnya window / mengembalikan objek global), this dalam object hasilnya akan (lingkupnya object / mengembalikan objek lokal)</p>
+        
+        <h3>Macam-macam Objek</h3>
+        <h5>Objek literal</h5>
+        <p>Contoh di atas adalah conoth objek literal</p>
+        <p>PROBLEM: tidak efektif untuk membuat objek yang banyak</p>
+        <h5>Function Declaration</h5>
+        <p>PROBLEM: kalau melakukan instansiasi pada objeknya, ternyata di belakang layar, method tetap dibuat (mau dipakai atau tidak) tetap disimpan ke dalam memori, solisi agar lebih efektif adalah dengan membuat objek terpisah</p>
+        <p>PROBLEM LAIN: kalau membuat method baru, maka object declarasiannya juga harus disesuaikan, maka yang dikelola ada dua</p>
         <script>
-            let hari = {};
-            hari['senin'] = 'belajar';
-            hari['selasa'] = 'bermain';
-            console.log(hari);
-            console.log(hari.senin)
-            let bulan = {
-                "januari": 'belajar',
-                februari: 'bermain',
-                maret: {
-                    minggu1: 'liburan',
-                    minggu2: 'istirahat'
-                }
+            // 1. objek literal
+            // 2. objek deklarasi
+            // function objekDeklarasi(nama, umur){
+            //     let objek = {};
+            //         objek.nama = nama;
+            //         objek.umur = umur;
+            //         objek.besok = function(tambah){
+            //             return `nama: ${nama}, umurnya ${this.umur += tambah}`;
+            //         }
+            //         objek.kemarin = function(kurang){
+            //             return `nama: ${nama}, umurnya ${this.umur -= kurang}`;
+            //         }
+            //     return objek;
+            // }
+            // let ahmad = objekDeklarasi('ahmad', 20);
+            // let abdul = objekDeklarasi('abdul', 50)
+            // ahmad.besok(5);
+            // console.log(ahmad);
+            // ahmad.kemarin(10);
+            // console.log(ahmad);
+
+            // 2.1. objek deklarasi (method di objek terpisah) dan ganti {} menjadi Object.create(parameter)
+            // let methodOD = {
+            //     besok: function(tambah){
+            //         return `nama: ${this.nama}, umurnya ${this.umur += tambah}`;
+            //     },
+            //     kemarin: function(kurang){
+            //         return `nama: ${this.nama}, umurnya ${this.umur -= kurang}`;
+            //     }
+            // }
+            // function objekDeklarasi(nama, umur){
+            //     let objek = Object.create(methodOD);
+            //     // let objek = {};
+            //         objek.nama = nama;
+            //         objek.umur = umur;
+            //         // objek.besok = methodOD.besok;
+            //         // objek.kemarin = methodOD.kemarin;
+            //     return objek;
+            // }
+            // let ahmad = objekDeklarasi('ahmad', 20);
+            // let abdul = objekDeklarasi('abdul', 50)
+            // ahmad.besok(5);
+            // console.log(ahmad);
+            // ahmad.kemarin(10);
+            // console.log(ahmad);
+
+            // 2.2 objek deklarasi (dengan object.create dan prototype)
+            function objekDeklarasi(nama, umur){
+                this.nama = nama;
+                this.umur = umur;
             }
-            console.log(bulan);
-            console.log(bulan.maret.minggu1)
-        </script>
-        <hr>
-
-        <h3>Macam objek</h3>
-        <script>
-            document.write('object literal');
-            // property isinya nilai (nama dan energy), method isinya function (makan);
-            let mahasiswa = {
-                nama: 'ahmad',
-                energy: 10,
-                makan: function(porsi){
-                    this.energy += porsi;
-                    console.log(`Halo ${this.nama}, selamat makan`)
-                }
+            objekDeklarasi.prototype.besok = function(tambah){
+                return `nama: ${this.nama}, umurnya ${this.umur += tambah}`;
             }
-            console.log(mahasiswa);
-            mahasiswa.makan(2);
-            console.log(mahasiswa);
+            objekDeklarasi.prototype.kemarin = function(kurang){
+                return `nama: ${this.nama}, umurnya ${this.umur -= kurang}`;
+            }
+            let ahmad = new objekDeklarasi('ahmad', 20);
+            let abdul = objekDeklarasi('abdul', 50)
+            ahmad.besok(5);
+            console.log(ahmad);
+            ahmad.kemarin(10);
+            console.log(ahmad);
 
-            // kalau ingin buat mahلاثasiswa lain, tiggal dicopas lalu diganti datanya, tapi itu tidak efektif jika datanya banyak
-            // maka lakukan cara kedua
-            document.write('function declaration')
+            
+
         </script>
 
-        <h3>Object metohd: Function yang ada di object</h3>
-        <script>
-            // bisa dengan name function atau anonimous function
-
-        </script>
+      
     </div>
-    
+
 </body>
+
 </html>

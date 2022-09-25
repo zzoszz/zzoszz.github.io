@@ -35,49 +35,64 @@
         <hr>
 
         <h3>User Defined</h3>
-        <script>
-            // function expression (have a name)
-            function fungsi1() {
-                document.write('this is expression function');
+        <pre>
+            fungsi ekspresi(dengan nama):
+            function fungsi(){
+                return 'eksekusi';
             }
-            fungsi1();
-            document.write("<br>");
-            // function declaration (anonimous)
-            let fungsi2 = function () {
-                document.write('this is description function')
-            }
-            fungsi2();
-        </script>
+            console.log(fungsi)
 
-        <h3>Parameter dan argumen</h3>
-        <script>
-            // param2 = default parameter, jika tidak diisi argumen maka nilainya 'default saja'
-            // param3 = optional parameter, jika tidak diisi argumen maka nilainya undefined
-            function parameter(param, param2 = 'default saja', param3) {
-                document.write(param + ' - ' + param2 + ' - ' + param3)
+            fungsi deklarasi(tanpa nama):
+            let fungsi2 = function(){
+                return 'eksekusi';
             }
-            parameter('argument');
-            document.write("<br>");
-            parameter('arg', 'default param');
-            document.write("<br>");
 
-            // param4 = rest parameter
-            function rParameter(param, ...param4) {
+            function fungsi3(parameter1, parameter2 = 'nilai default', dst){
+                return parameter1, parameter2, dst;
+            }
+            console.log(fungsi3(argumen1, argumen2, dst));
+
+            function fungsi4(...restParam){
                 let total = 0;
-                for (let i = 0; i < param4.length; i++) {
-                    total += param4[i];
+                for (let i = 0; i < restParam.length; i++){
+                    total += restParam[i];
                 }
-                document.write(param, total);
+                return restParam;
             }
-            rParameter('totalnya: ', 1, 2, 3)
-
-        </script>
+            console.log(fungsi4(1,2,3))
+        </pre>
+        <ul>
+            <li>parameter1 (optional parameter) jika argumennya diisi maka nilainya sesuai isiannya, jika tidak diisi maka nilainya undefined</li>
+            <li>parameter2 (default parameter) jika argumennya diisi maka nilainya sesuai isiannya, jika tidak diisi maka nilainya 'nilai default'</li>
+            <li>rest parameter (...restParam) Argumen yang diisi akan berupa array</li>
+        </ul>
 
         <h3>Arrow function</h3>
-        <script>
-            let tanpaAF = function(nama){
-                document.write(nama);
+        <pre>
+            function deklarasi dengan arrow function:
+            let fungsi2 = function(){
+                return 'eksekusi';
             }
+            let fungsi2 = () => {
+                return 'eksekusi';
+            }
+            let fungsi2 = (nama, umur) => {
+                return nama, umur;
+            }
+            jika eksekusinya hanya 'return' maka bisa disederhanakan seperti ini:
+            let fungsi2 = () => `eksekusi ${nama}`;
+            }
+        </pre>
+        <script>
+            let fungsi2 = (nama) => `eksekusi ${nama}`;
+            document.write(fungsi2('ahmad'));
+
+            let arr = ['ahmad', 'abdul', 'ajis']
+            let fungsi3 = arr.map(function(nama){return nama})
+            console.log(fungsi3);
+
+            let fungsi4 = arr.map(nama => nama.length);
+            console.log(fungsi4)
         </script>
         <hr>
         <h3>function as value</h3>
