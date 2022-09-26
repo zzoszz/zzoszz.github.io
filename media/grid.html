@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .pembungkus {
+            border: 2px solid;
+            padding: 5px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "aside main"
+                "nav main"
+                "footer footer";
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr 1.5fr 1fr;
+        }
+
+        header,
+        footer {
+            padding: 10px;
+            background-color: #999;
+        }
+        header {
+            grid-area: header;
+        }
+        footer {
+            grid-area: footer;
+        }
+
+        aside {
+            grid-area: aside;
+            padding: 10px;
+            background-color: #666;
+        }
+
+        nav {
+            grid-area: nav;
+            padding: 20px;
+            background-color: #555;
+        }
+
+        main {
+            grid-area: main;
+            background-color: #444;
+        }
+        .container1 {
+            border: 1px solid;
+            padding: 5px;
+            display: grid;
+            /* silahkan coba masing masing grid template columns di bawah ini dengan mengaktifkan salah satunya dan memberi komentar yang lain */
+            /* grid-template-columns: trackSize atau lineName trackSize; */
+
+            /* grid-template-columns: 100px; */
+            /* grid-template-columns: 100px auto 100px; */
+            /* grid-template-columns: 50% 40%; */
+            /* grid-template-columns: 1fr 2fr 3fr; */
+            /* grid-template-columns: repeat(3, 1fr); */
+            /* grid-template-columns: repeat(3, 1fr) repeat(2, 2fr); */
+            /* grid-template-columns: 1fr min-content 1fr; */
+            /* grid-template-columns: 1fr max-content 1fr; */
+
+            /* grid-template-rows: 100px 50px; */
+            /* menentukan arah grid dengan grid-auto-flow (defaultnya row) */
+
+            /* grid-auto-flow: column; */
+
+            /* grid-template-columns atau rows yang diatur nilainya disebut grid explisit */
+            /* grid-template-columns atau rows yang tidak diatur nilainya disebut grid implisit, ukurannya akan default kecuali dengan property grid-auto-coluns atau rows */
+            /* grid-auto-columns: 70px; */
+        }
+
+        .item1 {
+            background-color: #555;
+        }
+        .item2 {
+            background-color: #666;
+        }
+        .item3 {
+            background-color: #777;
+        }
+        .item4 {
+            background-color: #888;
+        }
+        .item5 {
+            background-color: #999;
+        }
+        .item6 {
+            background-color: #aaa;
+        }
+        .item7 {
+            background-color: #bbb;
+        }
+        .item8 {
+            background-color: #ccc;
+        }
+        .item9 {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html">index</a> |
+    <a href="grid.html">grid</a>
+    <h1 class="text-center">Grid</h1>
+    <div class="container">
+        <div class="pembungkus">
+            <header>Header</header>
+            <aside>aside</aside>
+            <nav>nav</nav>
+            <main>main</main>
+            <footer>Footer</footer>
+        </div>
+        <h3>Grid container</h3>
+        <div class="container1">
+            <div class="item item1">1</div>
+            <div class="item item2">2</div>
+            <div class="item item3">3</div>
+            <div class="item item4">4</div>
+            <div class="item item5">ini nomor lima</div>
+            <div class="item item6">6</div>
+            <div class="item item7">7</div>
+            <div class="item item8">8</div>
+            <div class="item item9">9</div>
+        </div>
+    </div>
+</body>
+
+</html>
