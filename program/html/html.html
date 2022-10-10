@@ -16,5 +16,47 @@
     <div class="materi text-center">
         
     </div>
+    <div class="container">
+        <div class="judul" id="pendahuluan">
+            <!-- how websites are loaded -->
+            <h3>How Websites are Loaded</h3>
+            <div class="konten">
+                <p>Did you ever ask yourself what happens when you type an address in the browser and hit enter? Most people dont really care what happens but I think it's important to know this stuff as a web developer so you type in the address, you hit enter and the website is loaded. What exactly happens behind the scenes? It all boils down to client-server communication. The client is the browser, the server or web server is the computer that's hosting the website's files and the communication is happening when the client is requesting a resource and the server providing that resource. So, basically the client is sending a message to the server saying that, hey I want the homepage for this website and that's usually the index.html file. The server respons or it receives the message and then it respons by sending the index.html file. The browser then takes the file, it reads it and it create something called the DOM. DOM stands for document object model and it basically represent all the building blocks of the webpage and their structure. So, paragraph, images, divs, heading and so on. All of these are represented in the DOM. Now when the browser goes through the html file line by line and it constructs the DOM, it might get to certain resources that need to be loaded from the server, for example images. When that happens, the client or the browser makes another request to the server for that particular resource. The server then responds by sending back that image or that font or whatever that resource is and this process happens over and over agein until all the resources in that webpage are loaded. When that happens the browser then can start rendering the webpage. And rendering being just a fancy word for displaying. As you can see, displaying the webpage is all about this constant communciation this constant going back and forth between client and server. Now let's talk about HTTP. You've seen this acronym in every web address you've ever used. HTTP stands for Hypertext Transfer Protocol. In simple terms, it's a language used for communication between client and server. It's a simple concept just like i'm communicating with you in english through this vedeo. That's exactly how the client is communicating with the server using HTTP. </p>
+                <p>Key takeaways:</p>
+                <ul>
+                    <li>Websites are hosted on special computers called servers and each webpage and web resource has a unique address defined by the URL</li>
+                    <li>The URL always contains the scheme and the authority and can optionally include a path to the resource, parameters and anchors</li>
+                    <li>To load a webpage or web resource, the client or browser sends a request to the server. The server responds to that request by sending resource back to the client</li>
+                    <li>The communication between client and server is made using the Hypertext Transfer Protocol or HTTP. This is a language understood by both browser and server.</li>
+                    <li>The difference between HTTP and HTTPS is that the letter is using excryption.</li>
+                    <li>For insight into the inner-workings of website, you can use your browser's developer tools.</li>
+                </ul>
+            </div>
+            <!-- akhir how websites are loaded -->
+
+            <!-- create first HTML file -->
+            <h3>Create First HTML file</h3>
+            <div class="konten">
+                <p>Key takeaways:</p>
+                <ul>
+                    <li>You can create an HTML file in any text editor but it's best you use a dedicated code editor</li>
+                    <li>Every HTML file starts with the doctype declaration which tells the browser what type of HTML it uses</li>
+                    <li>Every HTML file contans an html element which, in turn, contains the head and body elements</li>
+                    <li>The head element is used to give the browser information about the page like teh title, description or keywords. Any external resources like CSS or Javascript files are linked here as well</li>
+                    <li>The body element contains all teh content taht will be displayed in the browser</li>
+                </ul>
+                <p>Key takeaways2</p>
+                <ul>
+                    <li>HTML elements and HTML tags are different things, but these terms are used interchageably</li>
+                    <li>An HTML element is usually made of content placed between an opening and closing tag</li>
+                    <li>Certain elements are self-closing and don't have content. These are called empty elements.</li>
+                    <li>HTML atributs contains additional information about an element and are usually written as a key-value pair: an attribute name and a value.</li>
+                    <li>Not all attributes require a value (for example disabled or autofocus) and there are some that accept multiple values (for example class)</li>
+                    <li>HTML commets are used purely as a references for the developer and are ignored by the browser</li>
+                </ul>
+            </div>
+            <!-- akhir create first HTML file -->
+        </div>
+    </div>
 </body>
 </html>
