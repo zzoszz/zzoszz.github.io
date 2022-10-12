@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- koneksi ke sass -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../../../index.html">index</a> | 
+    <a href="../../program.html">program</a> | 
+    <a href="../css.html">css</a> | 
+    <a href="sass.html">sass</a>
+    <h1 class="text-center">SASS</h1>
+    <div class="materi text-center">
+        <a href="components.css">components</a>
+    </div>
+    <div class="container">
+        <!-- pengantar -->
+        <div class="content" id="pengantar">
+            <h3>Pengantar</h3>
+            <p>
+                <a href="https://www.w3schools.com/sass/sass_intro.php">sass w3schools</a> | 
+                <a href="https://sass-lang.com/">sass</a> | 
+                alasan dibuatnya sass karena dirasa ada kekuarngan pada css berikut: tidak ada variabel, function, modularisasi, tidak bisa melakukan operasi dan logika pemrograman dan banyak duplikasi kode. Solusi dari pre processor: variable, mixin, import dan uses, operator dan built in function, nested css. Alasan menggunakan sass: mempermudah penulisan, pengolahan, memiliki banyak fungsi built-in, kita dapat membuat fungsi sendiri, dapat memodifikasi framework css <br>
+                alasan tidak menggunakan sass: Banyak fitur sass yang sekarang sudah dimiliki css seperti variabel, operator; tidak untuk projek kecil; styled components / css in js
+            </p>
+            <p>
+                ketika mengedit style.scss lalu 'watch sass' (di bawah), maka akan ada dua file baru yaitu style.css dan style.map.css. Jika kamu ingin agar dua file itu di folder lain maka lakukan hal berikut:
+                <ol>
+                    <li>file/preferences/setting(ctrl+,)</li>
+                    <li>cari 'live sass compiler'</li>
+                    <li>scroll hingga ke 'formats' lalu klik edit in settings.json</li>
+                    <li>savePath: null, nullnya diganti nama folder misal 'css', nanti filenya akan tersimpan di folder itu</li>
+                </ol>
+            </p>
+        </div>
+        <!-- akhir pengantar -->
+
+        <!-- nesting -->
+        <h3>Nesting</h3>
+        <div class="content" id="nesting">
+            <div class="nesting1">
+                <h5>H5 Nesting1</h5>
+                <p>Paragraf Nesting1</p>
+            </div>
+            <div class="nesting2">
+                <h5>H5 Nesting2</h5>
+                <p>Paragraf Nesting2</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

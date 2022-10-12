@@ -1,0 +1,27 @@
+$myColor: #220598;
+#pengantar {
+    background-color: #eee;
+    h3 {
+        color: $myColor;
+    }
+}
+
+#nesting {
+    background-color: #ddd;
+    .nesting1 {
+        color: blue;
+    }
+    .nesting2 {
+        color: red;
+    }
+    // jika ingin sekalian
+    .nesting1, .nesting2 {
+        h5 {
+            font-variant: small-caps;
+        }
+        p {
+            font-weight: bold;
+        }
+    }
+}
+
